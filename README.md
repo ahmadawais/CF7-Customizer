@@ -4,7 +4,7 @@
 ### How to use it?
 
 - `git clone https://github.com/ahmadawais/aa_plugin.git .` in the folder where you need to build the plugin
-- Open the folder and replace all instances of @package AA (Globals) or aa (file names and namespace)
+- Open the folder and replace all instances of @ package AA (Globals) or aa (file names and namespace)
 - Open the folder in terminal and `npm install` or `sudo npm install`
 - Done!
 
