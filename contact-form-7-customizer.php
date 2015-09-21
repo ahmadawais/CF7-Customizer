@@ -72,3 +72,16 @@ $cft_assets  = CFC_URL . '/assets/';
 if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
     require_once( CFC_DIR . '/assets/inc/cfc.php' );
 }
+
+
+
+/**
+ * Options status
+ *
+ * Can be enabled or disabled for particular addons
+ *
+ * @since 0.0.1
+ * @package CFC
+ *
+ */
+add_option( 'opt_opt_cfc_txt_clr', true, '', 'yes' );

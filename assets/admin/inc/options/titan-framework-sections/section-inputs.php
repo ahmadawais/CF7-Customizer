@@ -37,7 +37,7 @@ function cfc_options__inputs() {
     $cfc_sec_inputs = $titan->createThemeCustomizerSection( array(
 
         // Section
-        'name' => 'Input Fields',
+        'name' => 'Input Fields Styling',
 
         // Panel
         'panel' => 'CF7 Customizer',
@@ -46,61 +46,80 @@ function cfc_options__inputs() {
 
 
     /**
-     * Options
+     * Option: Input Width
      *
-     * Options for $cfc_sec_inputs
+     * @since 0.0.1
      *
      */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_width.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_width.php' );
+    }
 
 
-    // Text Color
-    $cfc_sec_inputs->createOption( array(
-
-        'id'          => 'cfc_input_txt_clr',
-        'type'        => 'color',
-
-        'name'        => 'Text Color',
-
-        'default'     => '#5b5b5b',
-
-        'livepreview' => '$("#cfc input, #cfc textarea").css("color", value)',
-        'css'         => '#cfc input, #cfc textarea{ color: value; }'
-
-    ) );
-
-    // Background Color
-    $cfc_sec_inputs->createOption( array(
-
-        'id'          => 'cfc_input_bg_clr',
-        'type'        => 'color',
-
-        'name'        => 'Background Color',
-
-        'default'     => '#ffffff',
-
-        'livepreview' => '$("#cfc input, #cfc textarea").css("background-color", value)',
-        'css'         => '#cfc input, #cfc textarea{ background-color: value; }'
-
-    ) );
-
-    // Width
-    $cfc_sec_inputs->createOption( array(
-
-        'id'      => 'cfc_input_width',
-        'type'    => 'radio',
-
-        'options' => array(
-                '100%' => 'YES',
-                'n' => 'NO'
-            ),
-
-        'name'    => 'Make input fields full width?',
-        // 'desc'    => 'Adds width in percentage (px) to the submit button',
-
-        'css'         => '#cfc form input, #cfc form textarea{ width: value; }'
+    /**
+     * Option: Input Text Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_txt_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_txt_clr.php' );
+    }
 
 
-    ) );
+    /**
+     * Option: Input Bg Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_bg_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_bg_clr.php' );
+    }
+
+
+    /**
+     * Option: Input Padding
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_padding.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_padding.php' );
+    }
+
+
+    /**
+     * Option: Input Margin
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_margin.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_margin.php' );
+    }
+
+
+    /**
+     * Option: Input Border
+     *
+     * @since 0.0.1
+     *
+     */
+    // if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border.php' ) ) {
+    //     require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border.php' );
+    // }
+
+
+    /**
+     * Option: Input Border Color
+     *
+     * @since 0.0.1
+     *
+     */
+    // if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border_clr.php' ) ) {
+    //     require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border_clr.php' );
+    // }
 
 
 

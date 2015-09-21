@@ -14,3 +14,4 @@ textarea{overflow:auto}optgroup{font-weight:bold}#cfc form{width:100%}#cfc form 
 #cfc form .wpcf7-mail-sent-ok{background:#35ad68;border:none !important;padding:25px;color:#fff !important;margin:10px 0;width:100%;font-size:14px}
 #cfc form input[type="file"]{width:100% !important;padding:15px;border:0;cursor:pointer !important}
 #cfc form input[type="file"]:focus,#cfc form input[type="file"]:active,#cfc form input[type="file"]:hover{border:none !important}
+#cfc form .wpcf7-submit{margin-bottom:0 !important;transition:all .4s ease-in}

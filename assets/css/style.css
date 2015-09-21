@@ -67,7 +67,7 @@ optgroup { font-weight: bold; }
 
 /* ---------------------------------------------------------------------------- Partials ------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- CFC Main CSS File Contains normailization of forms ------------------------------------------------------------------------- */
-#cfc form { width: 100%; /* ---------------------------------------------------------------------------- File ------------------------------------------------------------------------- */ }
+#cfc form { width: 100%; /* ---------------------------------------------------------------------------- File ------------------------------------------------------------------------- */ /* ---------------------------------------------------------------------------- Button ------------------------------------------------------------------------- */ }
 
 #cfc form *, #cfc form *:after, #cfc form *:before { box-sizing: border-box; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
@@ -90,5 +90,7 @@ optgroup { font-weight: bold; }
 #cfc form input[type="file"] { width: 100% !important; padding: 15px; border: none; cursor: pointer !important; }
 
 #cfc form input[type="file"]:focus, #cfc form input[type="file"]:active, #cfc form input[type="file"]:hover { border: none !important; }
+
+#cfc form .wpcf7-submit { margin-bottom: 0 !important; transition: all 0.4s ease-in; }
 
 /*# sourceMappingURL=style.css.map */

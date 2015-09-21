@@ -37,7 +37,7 @@ function cfc_options__button() {
     $cfc_sec_btn = $titan->createThemeCustomizerSection( array(
 
         // Section
-        'name' => 'Button Style',
+        'name' => 'Button Styling',
 
         // Panel
         'panel' => 'CF7 Customizer',
@@ -46,63 +46,92 @@ function cfc_options__button() {
 
 
     /**
-     * Options
+     * Option: Button Width
      *
-     * Options for $cfc_sec_btn
+     * @since 0.0.1
      *
      */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_width.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_width.php' );
+    }
 
 
-    // Text Color
-    $cfc_sec_btn->createOption( array(
 
-        'id'          => 'cfc_btn_txt_clr',
-        'type'        => 'color',
-
-        'name'        => 'Button Text Color',
-
-        'default'     => '#fff',
-
-        'livepreview' => '$("#cfc .wpcf7-submit").css("color", value)',
-        'css'         => '#cfc .wpcf7-submit{ color: value; }'
-
-    ) );
-
-    // Background Color
-    $cfc_sec_btn->createOption( array(
-
-        'id'          => 'cfc_btn_bg_clr',
-        'type'        => 'color',
-
-        'name'        => 'Button Background Color',
-
-        'default'     => '#000000',
-
-        'livepreview' => '$("#cfc .wpcf7-submit").css("background-color", value)',
-        'css'         => '#cfc .wpcf7-submit{ background-color: value; }'
-
-    ) );
-
-    // Width
-    $cfc_sec_btn->createOption( array(
-
-        'id'      => 'cfc_btn_width',
-        'type'    => 'radio',
-
-        'options' => array(
-                '100%' => 'YES',
-                'auto' => 'NO'
-            ),
-
-        'name'    => 'Full Width Button',
-        // 'desc'    => 'Adds width in percentage (px) to the submit button',
-
-        'css'         => '#cfc .wpcf7-submit{ width: value; }'
+    /**
+     * Option: Button Text Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_txt_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_txt_clr.php' );
+    }
 
 
-    ) );
+    /**
+     * Option: Button BG Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_bg_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_bg_clr.php' );
+    }
 
 
+    /**
+     * Option: Button Hover Text Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_hover_txt_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_hover_txt_clr.php' );
+    }
+
+
+    /**
+     * Option: Button Hover BG Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_hover_bg_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_hover_bg_clr.php' );
+    }
+
+
+    /**
+     * Option: Button Border
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border.php' );
+    }
+
+
+    /**
+     * Option: Button Border Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border_clr.php' );
+    }
+
+
+    /**
+     * Option: Button Hover Border Color
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border_hover_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border_hover_clr.php' );
+    }
 
 
 // End of cfc_options__button()
