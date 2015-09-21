@@ -22,8 +22,8 @@
  * @since 0.0.1
  *
  */
-if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-form_text_bg.php' ) ) {
-    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-form_text_bg.php' );
+if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-form_text_bg_colors.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-form_text_bg_colors.php' );
 }
 
 
@@ -39,8 +39,8 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
  * @since 0.0.1
  *
  */
-if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-padding_margin_border.php' ) ) {
-    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-padding_margin_border.php' );
+if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-form_padding_margin_border.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-form_padding_margin_border.php' );
 }
 
 
@@ -60,8 +60,8 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
  * @since 0.0.1
  *
  */
-if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-inputs.php' ) ) {
-    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-inputs.php' );
+if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-input_field_styling.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-input_field_styling.php' );
 }
 
 
@@ -80,6 +80,6 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
  * @since 0.0.1
  *
  */
-if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-button.php' ) ) {
-    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-button.php' );
+if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-button_styling.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-button_styling.php' );
 }

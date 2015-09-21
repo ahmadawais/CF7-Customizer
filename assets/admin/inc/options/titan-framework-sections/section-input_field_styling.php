@@ -46,6 +46,18 @@ function cfc_options__inputs() {
 
 
     /**
+     * Note
+     *
+     */
+    $cfc_sec_inputs->createOption( array(
+
+        'type' => 'note',
+        'desc' => 'Style the input fields of a form by adding width, colors, border, padding and margins.'
+
+    ) );
+
+
+    /**
      * Option: Input Width
      *
      * @since 0.0.1
@@ -101,14 +113,25 @@ function cfc_options__inputs() {
 
 
     /**
+     * Option: Input Font Size
+     *
+     * @since 0.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_font_size.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_font_size.php' );
+    }
+
+
+    /**
      * Option: Input Border
      *
      * @since 0.0.1
      *
      */
-    // if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border.php' ) ) {
-    //     require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border.php' );
-    // }
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border.php' );
+    }
 
 
     /**
@@ -117,9 +140,9 @@ function cfc_options__inputs() {
      * @since 0.0.1
      *
      */
-    // if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border_clr.php' ) ) {
-    //     require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border_clr.php' );
-    // }
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border_clr.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_input_border_clr.php' );
+    }
 
 
 

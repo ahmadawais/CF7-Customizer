@@ -46,6 +46,18 @@ function cfc_options__padding_margin() {
 
 
     /**
+     * Note
+     *
+     */
+    $cfc_sec_pmb->createOption( array(
+
+        'type' => 'note',
+        'desc' => 'Add padding, margin and border to your form and customize the border color.'
+
+    ) );
+
+
+    /**
      * Option: Padding
      *
      * @since 0.0.1

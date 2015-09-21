@@ -9,6 +9,19 @@
  *
  */
 
+
+/**
+ * Welcome Page
+ *
+ * @since 0.0.1
+ *
+ */
+if ( file_exists( CFC_DIR . '/assets/admin/inc/welcome/welcome.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/welcome/welcome.php' );
+}
+
+
+
 /**
  * Titan Framework
  *

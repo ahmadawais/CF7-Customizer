@@ -45,6 +45,11 @@ if ( ! defined( 'WPINC' ) ) {
  *
  */
 
+// Plugin version
+if ( ! defined( 'CFC_VERSION' ) ) {
+    define( 'CFC_VERSION', '0.0.1' );
+}
+
 if ( ! defined( 'CFC_NAME' ) ) {
     define( 'CFC_NAME', trim( dirname( plugin_basename( __FILE__ ) ), '/' ) );
 }
@@ -74,14 +79,33 @@ if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
 }
 
 
-
 /**
- * Options status
+ * Plugin Activation
  *
- * Can be enabled or disabled for particular addons
+ * Add the welcome page transient
  *
  * @since 0.0.1
  * @package CFC
  *
  */
-add_option( 'opt_opt_cfc_txt_clr', true, '', 'yes' );
+register_activation_hook( __FILE__, 'cfc_welcome_screen_activate' );
+
+function cfc_welcome_screen_activate() {
+  set_transient( '_welcome_redirect_cfc', true );
+}
+
+
+/**
+ * Plugin Deactivation
+ *
+ * Delet the welcome page transient
+ *
+ * @since 0.0.1
+ * @package CFC
+ *
+ */
+register_deactivation_hook( __FILE__, 'cfc_welcome_screen_deactivate' );
+
+function cfc_welcome_screen_deactivate() {
+  delete_transient( '_welcome_redirect_cfc' );
+}

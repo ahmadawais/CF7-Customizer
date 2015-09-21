@@ -46,6 +46,17 @@ function cfc_options__button() {
 
 
     /**
+     * Note
+     *
+     */
+    $cfc_sec_btn->createOption( array(
+
+        'type' => 'note',
+        'desc' => 'Customize the form button with colors, border, even change the hover state colors.'
+
+    ) );
+
+    /**
      * Option: Button Width
      *
      * @since 0.0.1

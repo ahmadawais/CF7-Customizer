@@ -75,11 +75,11 @@ optgroup { font-weight: bold; }
 
 #cfc form input[type="radio"], #cfc form input[type="checkbox"] { width: auto !important; }
 
-#cfc form input[type="number"], #cfc form input[type="tel"], #cfc form input[type="date"] { width: 100%; padding: 0.5278em; cursor: pointer; }
+#cfc form input[type="number"], #cfc form input[type="tel"], #cfc form input[type="date"] { width: 100%; /*padding: 0.5278em;*/ cursor: pointer; }
 
 #cfc form .wpcf7-not-valid-tip { background-color: #f44336; color: #ffffff; font-size: 14px; padding: 10px; border: none; }
 
-#cfc form img { margin: 25px 0; }
+#cfc form img { /*margin: 25px 0;*/ }
 
 #cfc form select { width: 100% !important; }
 
