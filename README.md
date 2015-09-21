@@ -2,6 +2,8 @@
  It is an intuitive plugin to design your contact forms
 via WordPress live customizer, right at the front-end.
 
+![CF7 Customizer](http://wptie.com/wp-content/uploads/2014/10/CFC.png)
+
 ### Getting Started?
 
 - Step #1: → Install & Activate Contact Form 7.
