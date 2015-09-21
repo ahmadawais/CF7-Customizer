@@ -1,13 +1,18 @@
-## What is it?
-`aa_plugin` is a simple WordPress plugin boilerplate with advanced Gulp workflow.
+#CF7 Customizer
+ It is an intuitive plugin to design your contact forms
+via WordPress live customizer, right at the front-end.
 
-### How to use it?
+### Getting Started?
 
-- `git clone https://github.com/ahmadawais/aa_plugin.git .` in the folder where you need to build the plugin
-- Open the folder and replace all instances of @ package AA (Globals) or aa (file names and namespace)
-- Open the folder in terminal and `npm install` or `sudo npm install`
-- Done!
+- Step #1: → Install & Activate Contact Form 7.
+- Step #1: → Add New Form and SAVE it.
+- Step #2: COPY the shortcode of the form you just created and paste it inside your Contact Page.
+- Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
+- Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila
 
+## Credits
+- [Ahmad Awais](http://AhmadAwais.com/)
+- [WPTie](http://WPTie.com/)
 
 ##License GPL v2+
   Copyright 2015-2020 WPTie ( email: support at wptie.com )
