@@ -1,4 +1,6 @@
 #CF7 Customizer
+[![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/WPTie/CF7Customizer/blob/master/license.txt)
+
  It is an intuitive plugin to design your contact forms
 via WordPress live customizer, right at the front-end.
 
