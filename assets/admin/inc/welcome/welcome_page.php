@@ -92,6 +92,9 @@ $cfc_version = CFC_VERSION;
 			<h2>Get Started</h2>
 
 			<ul>
+				<?php if ( ! defined( 'WPCF7_VERSION' ) ) { ?>
+					<li><strong>Step #1:</strong><a href="/wp-admin/plugins.php?page=cfc-install-plugins" target="_blank">&rarr; Install & Activate <code>Contact Form 7</code></a>.</li>
+				<?php } ?>
 				<li><strong>Step #1:</strong> <a href="/wp-admin/admin.php?page=wpcf7-new" target="_blank">&rarr; Add New Form</a> and <code>SAVE</code> it.</li>
 				<li><strong>Step #2:</strong> <code>COPY</code> the shortcode of the form you just created and paste it inside your Contact <a href="/wp-admin/edit.php?post_type=page" target="_blank">Page</a>.</li>
 				<li><strong>Step #3:</strong> Go to your contact page(front-end) and open <code>CUSTOMIZER</code> from the admin bar.</li>
