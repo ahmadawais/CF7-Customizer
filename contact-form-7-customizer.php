@@ -6,7 +6,7 @@
  * Author: mrahmadawais, WPTie
  * Author URI: http://WPTie.com/
  * Text Domain: contact-form-7-customizer
- * Version: 0.0.1
+ * Version: 1.0.0
  * License: GPL v2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -47,7 +47,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 // Plugin version
 if ( ! defined( 'CFC_VERSION' ) ) {
-    define( 'CFC_VERSION', '0.0.1' );
+    define( 'CFC_VERSION', '1.0.0' );
 }
 
 if ( ! defined( 'CFC_NAME' ) ) {

@@ -23,6 +23,8 @@ Cf7 Customizer is an intuitive plugin to design your contact forms via WordPress
 *   Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
 *   Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila
 
+**Pst. We have big plans for this plugin***
+
 == Installation ==
 
 

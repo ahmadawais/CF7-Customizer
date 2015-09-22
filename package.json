@@ -1,11 +1,15 @@
 {
-  "name": "AA",
-  "version": "0.0.1",
+  "name": "CF7Customizer",
+  "version": "1.0.0",
+  "repository" : {
+    "type": "git",
+    "url" : "https://github.com/WPTie/CF7Customizer.git"
+    },
   "dependencies": {
     "del": "^2.0.2"
   },
   "devDependencies": {
-    "browser-sync": "^2.9.3",
+    "browser-sync": "^2.9.4",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-cache": "^0.3.0",
@@ -32,6 +36,6 @@
     "gulp-util": "^3.0.6",
     "gulp-wp-rev": "0.0.1",
     "gulp-zip": "^3.0.2",
-    "run-sequence": "^1.1.2"
+    "run-sequence": "^1.1.3"
   }
 }

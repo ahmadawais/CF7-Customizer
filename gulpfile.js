@@ -1,12 +1,11 @@
 /**
- *
  * Gulpfile setup
  *
- * @since 1.0.0
+ * @since 0.0.1
  * @author Ahmad Awais
  * @package CFC
+ *
  */
-
 
 // Project configuration
 var project 	= 'cfc', // Project name, used for build zip.
