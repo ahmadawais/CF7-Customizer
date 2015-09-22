@@ -18,7 +18,6 @@ function cfc_scripts_stlyes() {
     	// jQuery
         wp_enqueue_script( 'jquery' ); // Enqueue it!
 
-
         /**
          * Scripts
          *
@@ -50,8 +49,5 @@ function cfc_scripts_stlyes() {
         wp_register_style( 'cfc_style', CFC_URL . '/assets/css/style.min.css', array() , '1.0', 'all' );
         wp_enqueue_style( 'cfc_style' ); // Enqueue it!
 
-        // // Font
-        // wp_register_style( 'cfc_g_font', 'http://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
-        // wp_enqueue_style( 'cfc_g_font' ); // Enqueue it!
 
 }
