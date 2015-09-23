@@ -1,11 +1,10 @@
 <?php
 /**
- * Plugin Name: Contact Form 7 Customizer
+ * Plugin Name: CF7 Customizer
  * Plugin URI: http://WPTie.com/
- * Description: Customize Contact Form 7 with live theme customizer.
+ * Description: Customize Contact Form 7 forms with live theme customizer.
  * Author: mrahmadawais, WPTie
  * Author URI: http://WPTie.com/
- * Text Domain: contact-form-7-customizer
  * Version: 1.0.0
  * License: GPL v2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
