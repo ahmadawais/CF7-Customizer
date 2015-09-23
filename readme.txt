@@ -1,4 +1,4 @@
-=== Contact Form 7 Customizer ===
+=== CF7 Customizer ===
 Contributors: mrahmadawais, WPTie
 Donate link: http://AhmadAwais.com/contact/
 Tags: contact form 7, cf7 customizer, contact form 7 themes, cf7 skin, cf7 theme, cf7 Style, cf7 template
