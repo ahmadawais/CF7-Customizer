@@ -5,10 +5,13 @@
 [![Dependency Status](https://david-dm.org/WPTie/CF7Customizer.svg)](https://david-dm.org/WPTie/CF7Customizer)
 [![devDependency Status](https://david-dm.org/WPTie/CF7Customizer/dev-status.svg)](https://david-dm.org/WPTie/CF7Customizer#info=devDependencies)
 
- It is an intuitive plugin to design your contact forms
-via WordPress live customizer, right at the front-end.
+ It is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 
 ![CF7 Customizer](http://wptie.com/wp-content/uploads/2014/10/CFC.png)
+
+
+##Want More?
+Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the video or sign up for pre-release beta testers list.
 
 ### Getting Started?
 
@@ -18,9 +21,7 @@ via WordPress live customizer, right at the front-end.
 - Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
 - Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila
 
-## Credits
-- [Ahmad Awais](http://AhmadAwais.com/)
-- [WPTie](http://WPTie.com/)
+
 
 ##License GPL v2+
   Copyright 2015-2020 WPTie ( email: support at wptie.com )
@@ -38,3 +39,7 @@ via WordPress live customizer, right at the front-end.
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+## Credits
+- [Ahmad Awais](http://AhmadAwais.com/)
+- [WPTie](http://WPTie.com/)
