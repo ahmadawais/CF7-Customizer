@@ -8,38 +8,33 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Cf7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
+CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 
 == Description ==
 
-Cf7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
+CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 [vimeo https://vimeo.com/139903612]
 
 ###Getting started:
+
 Let's get you started
+
 * Step #0: → Install & Activate Contact Form 7.
 * Step #1: → Add New Form and SAVE it.
 * Step #2: COPY the shortcode of the form you just created and paste it inside your Contact Page.
 * Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
-* Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila
+* Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila!
 
 **Pst. We have big plans for this plugin**
 
-== Installation ==
 
+== Installation ==
 
 * Step #0: → After installing CF7Customizer, Install & Activate Contact Form 7.
 * Step #1: → Add New Form and SAVE it.
 * Step #2: COPY the shortcode of the form you just created and paste it inside your Contact Page.
 * Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
 * Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila
-
-
-== Frequently Asked Questions ==
-
-= How to get support? =
-
-If you have any questions post in the WordPress.org forums or reach out to me at Twitter [@mrahmadawais](http://twitter.com/mrahmadawais).
 
 
 == Screenshots ==
@@ -51,6 +46,10 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 5. Input Field Styling  Section
 6. Button Styling Section
 
+= How to get support? =
+
+If you have any questions post in the WordPress.org forums or reach out to me at Twitter [@mrahmadawais](http://twitter.com/mrahmadawais).
+
 
 == Changelog ==
 
@@ -60,3 +59,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 == Upgrade Notice ==
 
 Nothing at the moment.
+
+== Frequently Asked Questions ==
+
+
