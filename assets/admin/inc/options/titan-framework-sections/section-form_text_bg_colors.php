@@ -52,7 +52,7 @@ function cfc_options__txt_bg() {
     $cfc_sec_form_txt_bg->createOption( array(
 
         'type' => 'note',
-        'desc' => 'Customize form\'s text color, background color, add a background image or chnage the font-size.'
+        'desc' => 'Customize form\'s text color, background color, add a background image or change the font-size.'
 
     ) );
 
