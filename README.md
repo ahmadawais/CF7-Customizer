@@ -13,6 +13,11 @@
 ##Want More?
 Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the video or sign up for pre-release beta testers list.
 
+###Download
+- Download from [WordPress.org](https://wordpress.org/plugins/cf7-customizer/)
+- Landing Page for [CF7 Customizer](http://cf7customizer.wptie.com/)
+- Blog Post about  [CF7 Customizer](https://ahmadawais.com/cf7-customizer-form-styling-via-wp-live-customizer/)
+
 ### Getting Started?
 
 - Step #1: → Install & Activate Contact Form 7.
