@@ -63,11 +63,11 @@ Nothing at the moment.
 == Frequently Asked Questions ==
 
 **Q: Styles didn't show up after I saved and press 'x' in the Customizer?**
-**Ans:** Press refresh, and clear the cache. It happens for reasons like, if:
-- You use any caching plugin
-- Your server has some cache generation
-- You are using CloudFlare
 
+**Ans:** Press refresh, and clear the cache. It happens for reasons like, if:
+* You use any caching plugin
+* Your server has some cache generation
+* You are using CloudFlare
 So, just clear the cache and press refresh button on your browser a few times.
 
 
