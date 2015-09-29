@@ -22,6 +22,9 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 - Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila
 
 
+## Credits
+- [Ahmad Awais](http://AhmadAwais.com/)
+- [WPTie](http://WPTie.com/)
 
 ##License GPL v2+
   Copyright 2015-2020 WPTie ( email: support at wptie.com )
@@ -39,7 +42,3 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-## Credits
-- [Ahmad Awais](http://AhmadAwais.com/)
-- [WPTie](http://WPTie.com/)
