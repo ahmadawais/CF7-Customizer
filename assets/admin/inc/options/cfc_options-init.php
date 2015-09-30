@@ -35,6 +35,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
  * 				2. Margins
  * 				3. Border
  * 				4. Border Color
+ * 				5. Border Radius TODO
  *
  * @since 0.0.1
  *
@@ -56,6 +57,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
  * 				6. Border
  * 				7. Border Color
  * 				8. Border BG Color
+ * 				9. Border Radius TODO
  *
  * @since 0.0.1
  *
@@ -76,6 +78,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
  * 				5. Border
  * 				6. Border Color
  * 				7. Hover Border Color
+ * 				8. Border Radius TODO
  *
  * @since 0.0.1
  *
