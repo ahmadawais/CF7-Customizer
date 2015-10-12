@@ -335,13 +335,13 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				'installing'                      => __( 'Installing Plugin: %s', 'tgmpa' ),
 				'oops'                            => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
 				'notice_can_install_required'     => _n_noop(
-					'This theme requires the following plugin: %1$s.',
-					'This theme requires the following plugins: %1$s.',
+					'CF7 Customizer requires the following plugin: %1$s.',
+					'CF7 Customizer requires the following plugins: %1$s.',
 					'tgmpa'
 				),
 				'notice_can_install_recommended'  => _n_noop(
-					'This theme recommends the following plugin: %1$s.',
-					'This theme recommends the following plugins: %1$s.',
+					'CF7 Customizer recommends the following plugin: %1$s.',
+					'CF7 Customizer recommends the following plugins: %1$s.',
 					'tgmpa'
 				),
 				'notice_cannot_install'           => _n_noop(
@@ -350,8 +350,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					'tgmpa'
 				),
 				'notice_ask_to_update'            => _n_noop(
-					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
-					'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
+					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with CF7 Customizer: %1$s.',
+					'The following plugins need to be updated to their latest version to ensure maximum compatibility with CF7 Customizer: %1$s.',
 					'tgmpa'
 				),
 				'notice_ask_to_update_maybe'      => _n_noop(
@@ -399,7 +399,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				'plugin_activated'                => __( 'Plugin activated successfully.', 'tgmpa' ),
 				'activated_successfully'          => __( 'The following plugin was activated successfully:', 'tgmpa' ),
 				'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'tgmpa' ),
-				'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'tgmpa' ),
+				'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for CF7 Customizer. Please update the plugin.', 'tgmpa' ),
 				'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'tgmpa' ),
 				'dismiss'                         => __( 'Dismiss this notice', 'tgmpa' ),
 				'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'tgmpa' ),
