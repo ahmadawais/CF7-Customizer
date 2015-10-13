@@ -4,7 +4,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/?branch=master)
 [![Dependency Status](https://david-dm.org/WPTie/CF7Customizer.svg)](https://david-dm.org/WPTie/CF7Customizer)
 [![devDependency Status](https://david-dm.org/WPTie/CF7Customizer/dev-status.svg)](https://david-dm.org/WPTie/CF7Customizer#info=devDependencies)
-[![WP Repo Version](https://img.shields.io/wordpress/plugin/v/cf7-customizer.svg)](https://wordpress.org/plugins/cf7-customizer/)
+[![WordPress.org Repo Version](https://img.shields.io/wordpress/plugin/v/cf7-customizer.svg)](https://wordpress.org/plugins/cf7-customizer/)
 
  It is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 
