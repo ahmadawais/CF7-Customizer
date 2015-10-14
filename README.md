@@ -1,5 +1,6 @@
 #CF7 Customizer
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/WPTie/CF7Customizer/blob/master/license.txt)
+[![Build Status](https://travis-ci.org/WPTie/CF7Customizer.svg?branch=master)](https://travis-ci.org/WPTie/CF7Customizer)
 [![Build Status](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/badges/build.png?b=master)](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/?branch=master)
 [![Dependency Status](https://david-dm.org/WPTie/CF7Customizer.svg)](https://david-dm.org/WPTie/CF7Customizer)
