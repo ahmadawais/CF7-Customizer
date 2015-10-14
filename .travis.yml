@@ -4,6 +4,7 @@
 #           2. Then activates your plugin.
 #           3. It checks that your frontpage is working
 #           4. And that you can log into admin panel.
+#           5. phpunit and rspec integration tests
 sudo: false
 language: php
 
