@@ -62,13 +62,24 @@ Nothing at the moment.
 
 == Frequently Asked Questions ==
 
-**Q: Styles didn't show up after I saved and press 'x' in the Customizer?**
+**Q1: Styles didn't show up after I saved and press 'x' in the Customizer?**
 
 **Ans:** Press refresh, and clear the cache. It happens for reasons like, if:
 * You use any caching plugin
 * Your server has some cache generation
 * You are using CloudFlare
 So, just clear the cache and press refresh button on your browser a few times.
+
+**Q2: I am unable to find CF7Customizer settings page? Where is that?**
+
+**Ans:** I can understand that could be frustrating.
+
+You need to read these two steps again
+
+Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
+Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila!
+
+Here, I created a screencast for you to understand these two steps [Watch it!](http://jmp.sh/bwkBqCM)
 
 
 
