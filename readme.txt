@@ -82,4 +82,3 @@ Step #4: Find and open CF7 Customizer panel and customize your contact forms. Vo
 Here, I created a screencast for you to understand these two steps [Watch it!](http://jmp.sh/bwkBqCM)
 
 
-
