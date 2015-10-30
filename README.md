@@ -1,14 +1,15 @@
 #CF7 Customizer
-[![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/WPTie/CF7Customizer/blob/master/license.txt)
 [![Build Status](https://travis-ci.org/WPTie/CF7Customizer.svg?branch=master)](https://travis-ci.org/WPTie/CF7Customizer)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/WPTie/CF7Customizer/?branch=master)
 [![Dependency Status](https://david-dm.org/WPTie/CF7Customizer.svg)](https://david-dm.org/WPTie/CF7Customizer)
 [![devDependency Status](https://david-dm.org/WPTie/CF7Customizer/dev-status.svg)](https://david-dm.org/WPTie/CF7Customizer#info=devDependencies)
-[![WordPress.org Repo Version](https://img.shields.io/wordpress/plugin/v/cf7-customizer.svg)](https://wordpress.org/plugins/cf7-customizer/)
-
+[![WP Link](https://img.shields.io/wordpress/plugin/v/cf7-customizer.svg)](https://wordpress.org/plugins/cf7-customizer/)
+[![WP Downloads](https://img.shields.io/wordpress/plugin/dt/cf7-customizer.svg)](https://wordpress.org/plugins/cf7-customizer/)
+[![WP Rating](https://img.shields.io/wordpress/plugin/r/cf7-customizer.svg)](https://wordpress.org/support/view/plugin-reviews/cf7-customizer?filter=5)
+[![License](https://img.shields.io/badge/license-GPL%20v2.0-lightgrey.svg)](https://github.com/WPTie/CF7Customizer/blob/master/license.txt)
  It is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 
 ![CF7 Customizer](http://wptie.com/wp-content/uploads/2014/10/CFC.png)
+
 
 
 ##Want More?
