@@ -17,7 +17,6 @@ It is an intuitive plugin to design your contact forms via WordPress live custom
 ![CF7 Customizer](http://wptie.com/wp-content/uploads/2014/10/CFC.png)
 
 
-
 ##Want More?
 Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the video or sign up for pre-release beta testers list.
 
