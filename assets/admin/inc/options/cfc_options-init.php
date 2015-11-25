@@ -1,8 +1,8 @@
 <?php
 /**
- * Options init file
+ * Options init file.
  *
- * This file includes all the sections of customizer options
+ * This file includes all the sections of customizer options.
  *
  * @since 0.0.1
  * @package CFC
@@ -11,7 +11,7 @@
 
 
 /**
- * Section: Form Style
+ * Section: Form Style.
  *
  * Options :
  * 				1. Text Color
@@ -28,7 +28,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
 
 
 /**
- * Section: Form Padding, Margin & Border
+ * Section: Form Padding, Margin & Border.
  *
  * Options :
  * 				1. Padding
@@ -46,7 +46,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
 
 
 /**
- * Section: Inputs
+ * Section: Inputs.
  *
  * Options :
  * 				1. Width
@@ -68,7 +68,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
 
 
 /**
- * Section: Button
+ * Section: Button.
  *
  * Options :
  * 				1. Text Color
@@ -86,3 +86,19 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/
 if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-button_styling.php' ) ) {
     require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-button_styling.php' );
 }
+
+
+/**
+ * Section: Custom CSS
+ *
+ * Options:
+ * 			1. Code
+ *
+ * @since 1.0.1
+ */
+if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-custom_css.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-sections/section-custom_css.php' );
+}
+
+
+
