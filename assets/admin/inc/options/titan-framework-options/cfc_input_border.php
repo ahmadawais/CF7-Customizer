@@ -1,8 +1,8 @@
 <?php
 /**
- * Option: Input Width
+ * Option: Input Border
  *
- * Section: Input Fields Styling
+ * Section: Input Fields Styling.
  *
  * @since 0.0.1
  * @package CFC

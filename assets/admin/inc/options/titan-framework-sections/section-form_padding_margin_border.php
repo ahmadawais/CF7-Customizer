@@ -91,6 +91,15 @@ function cfc_options__padding_margin() {
 
 
     /**
+     * Option: Border Radius.
+     *
+     * @since 1.0.1
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_border_radius.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_border_radius.php' );
+    }
+
+    /**
      * Option: Border Color
      *
      * @since 0.0.1

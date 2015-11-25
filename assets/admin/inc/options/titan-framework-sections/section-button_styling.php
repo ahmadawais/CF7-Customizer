@@ -124,6 +124,17 @@ function cfc_options__button() {
 
 
     /**
+     * Option: Button Border Radius.
+     *
+     * @since 1.0.1
+     *
+     */
+    if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border_radius.php' ) ) {
+        require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-options/cfc_btn_border_radius.php' );
+    }
+
+
+    /**
      * Option: Button Border Color
      *
      * @since 0.0.1

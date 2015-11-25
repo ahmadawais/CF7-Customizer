@@ -1,6 +1,6 @@
 <?php
 /**
- * Option: Button Hover BG Color
+ * Option: Button Border.
  *
  * Section: Button Styling
  *
