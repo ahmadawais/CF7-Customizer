@@ -45,6 +45,7 @@ function cfc_tgm_register_required_plugins() {
 	$plugins = array(
 
 		// Add Contact form 7.
+		// Required
 		array(
 			'name'             => 'Contact Form 7',
 			'slug'             => 'contact-form-7',
