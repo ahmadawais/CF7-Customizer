@@ -44,13 +44,12 @@ function cfc_tgm_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		// CF7
+		// Add Contact form 7.
 		array(
 			'name'             => 'Contact Form 7',
 			'slug'             => 'contact-form-7',
 			'required'         => true,
 		),
-
 
 	);
 

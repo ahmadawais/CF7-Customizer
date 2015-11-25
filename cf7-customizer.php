@@ -37,14 +37,14 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Define global constants
+ * Define global constants.
  *
  * @package CFC
  * @since 0.0.1
  *
  */
 
-// Plugin version
+// Plugin version.
 if ( ! defined( 'CFC_VERSION' ) ) {
     define( 'CFC_VERSION', '1.0.0' );
 }
@@ -61,14 +61,14 @@ if ( ! defined('CFC_URL' ) ) {
     define( 'CFC_URL', WP_PLUGIN_URL . '/' . CFC_NAME );
 }
 
-// Assets Path
+// Assets Path.
 $cft_assets  = CFC_URL . '/assets/';
 
 
 /**
- * CFC Main File
+ * CFC Main File.
  *
- * This is the main file of CFC which controls everything in this plugin
+ * This is the main file of CFC which controls everything in this plugin.
  *
  * @since 0.0.1
  *
@@ -79,9 +79,9 @@ if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
 
 
 /**
- * Plugin Activation
+ * Plugin Activation.
  *
- * Add the welcome page transient
+ * Add the welcome page transient.
  *
  * @since 0.0.1
  * @package CFC
@@ -95,9 +95,9 @@ function cfc_welcome_screen_activate() {
 
 
 /**
- * Plugin Deactivation
+ * Plugin Deactivation.
  *
- * Delet the welcome page transient
+ * Delet the welcome page transient.
  *
  * @since 0.0.1
  * @package CFC
