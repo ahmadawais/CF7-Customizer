@@ -77,6 +77,8 @@ if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
     require_once( CFC_DIR . '/assets/inc/cfc.php' );
 }
 
+// Commented since freemius takes care of the redirect.
+// Makes no sense to make a duplicate redirect.
 
 /**
  * Plugin Activation.
@@ -87,11 +89,11 @@ if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
  * @package CFC
  *
  */
-register_activation_hook( __FILE__, 'cfc_welcome_screen_activate' );
+// register_activation_hook( __FILE__, 'cfc_welcome_screen_activate' );
 
-function cfc_welcome_screen_activate() {
-  set_transient( '_welcome_redirect_cfc', true );
-}
+// function cfc_welcome_screen_activate() {
+//   set_transient( '_welcome_redirect_cfc', true );
+// }
 
 
 /**
@@ -103,8 +105,8 @@ function cfc_welcome_screen_activate() {
  * @package CFC
  *
  */
-register_deactivation_hook( __FILE__, 'cfc_welcome_screen_deactivate' );
+// register_deactivation_hook( __FILE__, 'cfc_welcome_screen_deactivate' );
 
-function cfc_welcome_screen_deactivate() {
-  delete_transient( '_welcome_redirect_cfc' );
-}
+// function cfc_welcome_screen_deactivate() {
+//   delete_transient( '_welcome_redirect_cfc' );
+// }
