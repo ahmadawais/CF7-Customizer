@@ -46,7 +46,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 // Plugin version.
 if ( ! defined( 'CFC_VERSION' ) ) {
-    define( 'CFC_VERSION', '1.0.0' );
+    define( 'CFC_VERSION', '1.0.1' );
 }
 
 if ( ! defined( 'CFC_NAME' ) ) {
