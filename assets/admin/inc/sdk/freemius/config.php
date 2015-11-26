@@ -12,7 +12,7 @@
 
 	define( 'WP_FS__SLUG', 'freemius' );
 	if ( ! defined( 'WP_FS__DEV_MODE' ) ) {
-		define( 'WP_FS__DEV_MODE', true );
+		define( 'WP_FS__DEV_MODE', false );
 	}
 
 	/**
@@ -45,7 +45,7 @@
 	 *      THEREFORE, MAKE SURE THAT WHEN USING THIS PARAMETER,YOUR TESTING ENVIRONMENT'S
 	 *      CLOCK IS SYNCED.
 	 */
-	define( 'WP_FS__SKIP_EMAIL_ACTIVATION', true );
+	define( 'WP_FS__SKIP_EMAIL_ACTIVATION', false );
 
 
 	/**
