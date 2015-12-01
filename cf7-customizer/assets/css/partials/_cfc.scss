@@ -1,0 +1,111 @@
+/* ----------------------------------------------------------------------------
+ * CFC Main CSS File
+ * Contains normailization of forms
+ * ------------------------------------------------------------------------- */
+
+  #cfc form{
+
+  		*,
+  		*:after,
+  		*:before {
+  		    -moz-box-sizing: border-box;
+  		    box-sizing: border-box;
+  		    -webkit-font-smoothing: antialiased;
+  		    font-smoothing: antialiased;
+  		    text-rendering: optimizeLegibility;
+  		}
+		width: 100%;
+
+		input,
+		textarea{
+			/*width: 100%;*/
+			/*margin: 0 0 20px 0;*/
+		}
+
+		input[type="radio"],
+		input[type="checkbox"]{
+			width: auto !important;
+		}
+
+		input[type="number"],
+		input[type="tel"],
+		input[type="date"] {
+		  	width: 100%;
+		  	/*padding: 0.5278em;*/
+		    cursor: pointer;
+		  }
+
+		.wpcf7-not-valid-tip{
+			background-color: $c3;
+		    color: $w;
+		    font-size: 14px;
+		    padding: 10px;
+		    border: none;
+		}
+
+
+		img{
+		  	/*margin: 25px 0;*/
+		 }
+
+		select{
+		  	width: 100% !important;
+		  }
+
+
+		.wpcf7-validation-errors{
+		  	background: $c4;
+		 	border: none !important;
+		 	padding: 25px;
+		 	color: $w !important;
+		 	margin: 10px 0;
+		 	width: 100%;
+		 	font-size: 14px;
+		  }
+
+		.wpcf7-mail-sent-ok{
+		  	 	background: $c2;
+		  		border: none !important;
+		  		padding: 25px;
+		  		color: $w !important;
+		  		margin: 10px 0;
+		  		width: 100%;
+			 	font-size: 14px;
+
+		  }
+
+		 /* ----------------------------------------------------------------------------
+		  * File
+		  * ------------------------------------------------------------------------- */
+
+
+		input[type="file"] {
+		  	width: 100% !important;
+		  	padding: 15px;
+		  	border: none;
+		    cursor: pointer !important;
+		  }
+
+		 input[type="file"]:focus,
+		 input[type="file"]:active,
+		 input[type="file"]:hover {
+		 	border: none !important;
+		}
+
+	/* ----------------------------------------------------------------------------
+	 * Button
+	 * ------------------------------------------------------------------------- */
+
+	 .wpcf7-submit{
+	 	margin-bottom: 0 !important;
+	 	-webkit-transition: all 0.4s ease-in;
+	 	   -moz-transition: all 0.4s ease-in;
+	 	    -ms-transition: all 0.4s ease-in;
+	 	     -o-transition: all 0.4s ease-in;
+	 	        transition: all 0.4s ease-in;
+	 }
+
+  }
+
+
+

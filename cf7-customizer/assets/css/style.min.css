@@ -1,0 +1,17 @@
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}
+button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}
+input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}
+textarea{overflow:auto}optgroup{font-weight:bold}#cfc form{width:100%}#cfc form *,#cfc form *:after,#cfc form *:before{box-sizing:border-box;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;text-rendering:optimizeLegibility}
+#cfc form input[type="radio"],#cfc form input[type="checkbox"]{width:auto !important}
+#cfc form input[type="number"],#cfc form input[type="tel"],#cfc form input[type="date"]{width:100%;cursor:pointer}
+#cfc form .wpcf7-not-valid-tip{background-color:#f44336;color:#fff;font-size:14px;padding:10px;border:0}
+#cfc form select{width:100% !important}#cfc form .wpcf7-validation-errors{background:#e57373;border:none !important;padding:25px;color:#fff !important;margin:10px 0;width:100%;font-size:14px}
+#cfc form .wpcf7-mail-sent-ok{background:#35ad68;border:none !important;padding:25px;color:#fff !important;margin:10px 0;width:100%;font-size:14px}
+#cfc form input[type="file"]{width:100% !important;padding:15px;border:0;cursor:pointer !important}
+#cfc form input[type="file"]:focus,#cfc form input[type="file"]:active,#cfc form input[type="file"]:hover{border:none !important}
+#cfc form .wpcf7-submit{margin-bottom:0 !important;transition:all .4s ease-in}
