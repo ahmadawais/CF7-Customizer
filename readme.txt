@@ -59,7 +59,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 - Border-radius added to form, inputs and button
 - TGMPA updated
 - Titan Framework updated
-- Freemius support added
+- Freemius support app added
 
 
 = 1.0.0 =
