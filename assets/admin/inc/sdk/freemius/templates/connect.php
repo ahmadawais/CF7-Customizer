@@ -28,6 +28,7 @@
 		$site_url = substr( $site_url, $protocol_pos + 3 );
 	}
 ?>
+
 <div id="fs_connect" class="wrap<?php if ( ! $fs->enable_anonymous() ) {
 	echo ' fs-anonymous-disabled';
 } ?>">
