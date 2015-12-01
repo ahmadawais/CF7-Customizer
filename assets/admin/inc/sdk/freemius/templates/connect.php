@@ -152,7 +152,7 @@ $cfc_version = CFC_VERSION;
 			</form>
 		<?php endif ?>
 	</div>
-	<!--<div class="fs-permissions">
+	<div class="fs-permissions">
 		<a class="fs-trigger " href="#"><?php _efs( 'cfc_what_is_this' ) ?></a>
 		<ul>
 			<li>
@@ -184,7 +184,7 @@ $cfc_version = CFC_VERSION;
 			</li>
 		</ul>
 	</div>
-	 <div class="fs-terms">
+	 <!--<div class="fs-terms">
 		<a href="https://freemius.com/privacy/" target="_blank"><?php _efs( 'privacy-policy' ) ?></a>
 		&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a href="https://freemius.com/terms/" target="_blank"><?php _efs( 'tos' ) ?></a>
