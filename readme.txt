@@ -30,7 +30,7 @@ Let's get you started
 
 == Installation ==
 
-* Step #0: → After installing CF7Customizer, Install & Activate Contact Form 7.
+* Step #0: → After installing CF7Customizer, Install/Activate Contact Form 7 &Titan Framework.
 * Step #1: → Add New Form and SAVE it.
 * Step #2: COPY the shortcode of the form you just created and paste it inside your Contact Page.
 * Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
