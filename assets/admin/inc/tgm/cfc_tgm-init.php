@@ -51,6 +51,9 @@ function cfc_tgm_register_required_plugins() {
 			'required'         => true,
 		),
 
+
+
+
 	);
 
 	/*

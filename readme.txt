@@ -13,8 +13,6 @@ CF7 Customizer is an intuitive plugin to design your contact forms via WordPress
 == Description ==
 
 CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
-[vimeo https://vimeo.com/139903612]
-
 ###Getting started:
 
 Let's get you started
@@ -26,6 +24,8 @@ Let's get you started
 * Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila!
 
 **Pst. We have big plans for this plugin**
+
+[vimeo https://vimeo.com/139903612]
 
 
 == Installation ==
