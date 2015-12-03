@@ -33,9 +33,9 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/sdk/cfc_freemius.php' ) ) {
 
 
 /**
- * Titan Framework.
+ * TGMPA.
  *
- * Adds TF for creating options.
+ * Adds TGMPA for adding required plugins.
  *
  * @source https://github.com/gambitph/Titan-Framework
  * @since 0.0.1
@@ -46,7 +46,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/tgm/cfc_tgm-init.php' ) ) {
 }
 
 /**
- * Titan Framework
+ * TODO: Titan Framework (remove unused classes and embedd again).
  *
  * Adds TF for creating options
  *
@@ -54,8 +54,21 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/tgm/cfc_tgm-init.php' ) ) {
  * @since 0.0.1
  *
  */
-if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' ) ) {
-    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' );
+// if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' ) ) {
+//     require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' );
+// }
+
+/**
+ * Titan Framework.
+ *
+ * Checks if TF is present if not, asks the user to Adds TF plugin for creating options.
+ *
+ * @source https://github.com/gambitph/Titan-Framework
+ * @since 1.0.2
+ *
+ */
+if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' );
 }
 
 
