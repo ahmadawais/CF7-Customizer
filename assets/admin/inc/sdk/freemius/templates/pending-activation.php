@@ -28,27 +28,21 @@
 		$site_url = substr( $site_url, $protocol_pos + 3 );
 	}
 ?>
-<div id="fs_connect" class="wrap fs-anonymous-disabled">
-	<div class="fs-visual">
-		<b class="fs-site-icon"><i class="dashicons dashicons-wordpress"></i></b>
-		<i class="dashicons dashicons-plus fs-first"></i>
+<div class="wrap about-wrap">
 
-		<div class="fs-plugin-icon">
-			<object data="//plugins.svn.wordpress.org/<?php echo $slug ?>/assets/icon-128x128.png" type="image/png">
-				<object data="//plugins.svn.wordpress.org/<?php echo $slug ?>/assets/icon-128x128.jpg" type="image/png">
-					<object data="//plugins.svn.wordpress.org/<?php echo $slug ?>/assets/icon-256x256.png"
-					        type="image/png">
-						<object data="//plugins.svn.wordpress.org/<?php echo $slug ?>/assets/icon-256x256.jpg"
-						        type="image/png">
-							<img src="//wimg.freemius.com/plugin-icon.png"/>
-						</object>
-					</object>
-				</object>
-			</object>
-		</div>
-		<i class="dashicons dashicons-plus fs-second"></i>
-		<img class="fs-connect-logo" width="80" height="80" src="//img.freemius.com/connect-logo.png"/>
+	<h1><?php printf( __( 'CF7 Customizer &nbsp;%s' ), $cfc_version ); ?></h1>
+
+	<div class="about-text">
+		<?php printf( __( 'CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.' ), $cfc_version ); ?>
 	</div>
+
+	<div class="cfc_logo"></div>
+<div id="fs_connect" class="wrap fs-anonymous-disabled"
+
+	style="width: 75%;"
+
+>
+
 	<div class="fs-content">
 		<p><?php
 				echo $fs->apply_filters( 'pending_activation_message', sprintf(
@@ -132,6 +126,7 @@
 		&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a href="https://freemius.com/terms/" target="_blank"><?php _efs( 'tos' ) ?></a>
 	</div>
+</div>
 </div>
 <script type="text/javascript">
 	(function ($) {
