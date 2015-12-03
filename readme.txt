@@ -4,7 +4,7 @@ Donate link: http://AhmadAwais.com/contact/
 Tags: contact form 7, cf7 customizer, contact form 7 themes, cf7 skin, cf7 theme, cf7 Style, cf7 template, cf7, CF7 addon, CF7 style, form templates, contact form 7, CF7Customizer, CF7 Customisor, contact form 7 css, contact form 7 style, contact form 7 styling, custom form styling, customize, multiple form styling, styling contact form, styling contact form 7, Contact Form 7 Skins, form CSS, cf7 form, skin, Style, template
 Requires at least: 4.0.0
 Tested up to: 4.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ CF7 Customizer is an intuitive plugin to design your contact forms via WordPress
 
 Let's get you started
 
-* Step #0: → Install & Activate Contact Form 7.
+* Step #0: → Install/Activate Contact Form 7 & Titan Framework.
 * Step #1: → Add New Form and SAVE it.
 * Step #2: COPY the shortcode of the form you just created and paste it inside your Contact Page.
 * Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
@@ -52,6 +52,12 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 
 == Changelog ==
+
+= 1.0.2 =
+- WordPress 4.4 compatible.
+- Minor freemius bugs removed.
+- TitanFramework is now called as a plugin instead of being embedded.
+
 
 = 1.0.1 =
 - WordPress 4.4 compatible

@@ -27,7 +27,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 ### Getting Started?
 
-- Step #1: → Install & Activate Contact Form 7.
+- Step #0: → Install/Activate Contact Form 7 & Titan Framework.
 - Step #1: → Add New Form and SAVE it.
 - Step #2: COPY the shortcode of the form you just created and paste it inside your Contact Page.
 - Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin bar.
