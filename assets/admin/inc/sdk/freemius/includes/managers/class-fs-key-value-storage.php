@@ -86,6 +86,10 @@
 		 * @param bool   $flush
 		 */
 		function store( $key, $value, $flush = true ) {
+			if ( $this->_logger->is_on() ) {
+				$this->_logger->entrance( $key . ' = ' . var_export( $value, true ) );
+			}
+
 			if ( array_key_exists( $key, $this->_data ) && $value === $this->_data[ $key ] ) {
 				// No need to store data if the value wasn't changed.
 				return;
@@ -111,7 +115,9 @@
 		function clear_all( $store = true, $exceptions = array() ) {
 			$new_data = array();
 			foreach ( $exceptions as $key ) {
-				$new_data[ $key ] = $this->_data[ $key ];
+				if ( isset( $this->_data[ $key ] ) ) {
+					$new_data[ $key ] = $this->_data[ $key ];
+				}
 			}
 
 			$this->_data = $new_data;
@@ -234,7 +240,7 @@
 		 * @return void Any returned value is ignored.
 		 */
 		public function next() {
-			return next( $this->_data );
+			next( $this->_data );
 		}
 
 		/**

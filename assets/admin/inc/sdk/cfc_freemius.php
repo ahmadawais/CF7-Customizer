@@ -4,24 +4,24 @@
  *
  * File to add the SDK for freemius.
  *
- * @since 1.0.1
  * @package CFC
+ * @since   1.0.1
  */
 
-
-/**
- * Freemius SDK.
- *
- * Create a helper function for easy SDK access.
- *
- * @since 1.0.1
- */
 if ( file_exists( CFC_DIR . '/assets/admin/inc/sdk/freemius/start.php' ) ) {
 
+	/**
+	 * Freemius SDK.
+	 *
+	 * Create a helper function for easy SDK access.
+	 *
+	 * @since 1.0.1
+	 */
 	function cfc_fs() {
 	    global $cfc_fs;
 	    if ( ! isset( $cfc_fs ) ) {
 	        // Include Freemius SDK.
+		    // require_once( CFC_DIR . '/assets/admin/inc/sdk/freemius-new/start.php' );
 		    require_once( CFC_DIR . '/assets/admin/inc/sdk/freemius/start.php' );
 		    $cfc_fs = fs_dynamic_init( array(
 				'id'              => '91',
@@ -49,7 +49,3 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/sdk/freemius/start.php' ) ) {
 	cfc_fs();
 
 }
-
-
-
- ?>

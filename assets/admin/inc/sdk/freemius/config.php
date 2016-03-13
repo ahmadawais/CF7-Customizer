@@ -18,10 +18,18 @@
 	/**
 	 * API Connectivity Simulation
 	 */
-	define( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY', false && WP_FS__DEV_MODE );
-	define( 'WP_FS__SIMULATE_NO_CURL', false && WP_FS__DEV_MODE );
-	define( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY_CLOUDFLARE', false && WP_FS__DEV_MODE );
-	define( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY_SQUID_ACL', false && WP_FS__DEV_MODE );
+	if ( ! defined( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY' ) ) {
+		define( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY', false );
+	}
+	if ( ! defined( 'WP_FS__SIMULATE_NO_CURL' ) ) {
+		define( 'WP_FS__SIMULATE_NO_CURL', false );
+	}
+	if ( ! defined( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY_CLOUDFLARE' ) ) {
+		define( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY_CLOUDFLARE', false );
+	}
+	if ( ! defined( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY_SQUID_ACL' ) ) {
+		define( 'WP_FS__SIMULATE_NO_API_CONNECTIVITY_SQUID_ACL', false );
+	}
 	if ( WP_FS__SIMULATE_NO_CURL ) {
 		define( 'FS_SDK__SIMULATE_NO_CURL', true );
 	}
@@ -32,6 +40,31 @@
 		define( 'FS_SDK__SIMULATE_NO_API_CONNECTIVITY_SQUID_ACL', true );
 	}
 
+	if ( ! defined( 'WP_FS__PING_API_ON_IP_OR_HOST_CHANGES' ) ) {
+		/**
+		 * @since  1.1.7.3
+		 * @author Vova Feldman (@svovaf)
+		 *
+		 * I'm not sure if shared servers periodically change IP, or the subdomain of the
+		 * admin dashboard. Also, I've seen sites that have strange loop of switching
+		 * between domains on a daily basis. Therefore, to eliminate the risk of
+		 * multiple unwanted connectivity test pings, temporary ignore domain or
+		 * server IP changes.
+		 */
+		define( 'WP_FS__PING_API_ON_IP_OR_HOST_CHANGES', false );
+	}
+
+	/**
+	 * If your dev environment supports custom public network IP setup
+	 * like VVV, please update WP_FS__LOCALHOST_IP with your public IP
+	 * and uncomment it during dev.
+	 */
+	if ( ! defined( 'WP_FS__LOCALHOST_IP' ) ) {
+		// VVV default public network IP.
+		define( 'WP_FS__VVV_DEFAULT_PUBLIC_IP', '192.168.50.4' );
+
+//		define( 'WP_FS__LOCALHOST_IP', WP_FS__VVV_DEFAULT_PUBLIC_IP );
+	}
 
 	/**
 	 * If true and running with secret key, the opt-in process
@@ -45,7 +78,9 @@
 	 *      THEREFORE, MAKE SURE THAT WHEN USING THIS PARAMETER,YOUR TESTING ENVIRONMENT'S
 	 *      CLOCK IS SYNCED.
 	 */
-	define( 'WP_FS__SKIP_EMAIL_ACTIVATION', false );
+	if ( ! defined( 'WP_FS__SKIP_EMAIL_ACTIVATION' ) ) {
+		define( 'WP_FS__SKIP_EMAIL_ACTIVATION', false );
+	}
 
 
 	/**
@@ -57,29 +92,61 @@
 	define( 'WP_FS__DIR_ASSETS', WP_FS__DIR . '/assets' );
 	define( 'WP_FS__DIR_CSS', WP_FS__DIR_ASSETS . '/css' );
 	define( 'WP_FS__DIR_JS', WP_FS__DIR_ASSETS . '/js' );
+	define( 'WP_FS__DIR_IMG', WP_FS__DIR_ASSETS . '/img' );
 	define( 'WP_FS__DIR_SDK', WP_FS__DIR_INCLUDES . '/sdk' );
 
 
 	/**
 	 * Domain / URL / Address
 	 */
-	define( 'WP_FS__TESTING_DOMAIN', 'fswp:8080' );
 	define( 'WP_FS__DOMAIN_PRODUCTION', 'wp.freemius.com' );
-	define( 'WP_FS__DOMAIN_LOCALHOST', 'wp.freemius' );
-	define( 'WP_FS__ADDRESS_LOCALHOST', 'http://' . WP_FS__DOMAIN_LOCALHOST . ':8080' );
 	define( 'WP_FS__ADDRESS_PRODUCTION', 'https://' . WP_FS__DOMAIN_PRODUCTION );
 
-	define( 'WP_FS__IS_PRODUCTION_MODE', ! defined( 'WP_FS__DEV_MODE' ) || ! WP_FS__DEV_MODE || ( WP_FS__TESTING_DOMAIN !== $_SERVER['HTTP_HOST'] ) );
+	if ( ! defined( 'WP_FS__DOMAIN_LOCALHOST' ) ) {
+		define( 'WP_FS__DOMAIN_LOCALHOST', 'wp.freemius' );
+	}
+	if ( ! defined( 'WP_FS__ADDRESS_LOCALHOST' ) ) {
+		define( 'WP_FS__ADDRESS_LOCALHOST', 'http://' . WP_FS__DOMAIN_LOCALHOST . ':8080' );
+	}
+
+	if ( ! defined( 'WP_FS__TESTING_DOMAIN' ) ) {
+		define( 'WP_FS__TESTING_DOMAIN', 'fswp' );
+	}
+
+	if ( ! defined( 'WP_FS__API_ADDRESS_LOCALHOST' ) ) {
+		define( 'WP_FS__API_ADDRESS_LOCALHOST', 'http://api.freemius:8080' );
+	}
+	if ( ! defined( 'WP_FS__API_SANDBOX_ADDRESS_LOCALHOST' ) ) {
+		define( 'WP_FS__API_SANDBOX_ADDRESS_LOCALHOST', 'http://sandbox-api.freemius:8080' );
+	}
+
+	define( 'WP_FS__IS_HTTP_REQUEST', isset( $_SERVER['HTTP_HOST'] ) );
+	define( 'WP_FS__REMOTE_ADDR', fs_get_ip() );
+
+	if ( ! defined( 'WP_FS__IS_PRODUCTION_MODE' ) ) {
+		// By default, run with Freemius production servers.
+		define( 'WP_FS__IS_PRODUCTION_MODE', true );
+	}
 
 	define( 'WP_FS__ADDRESS', ( WP_FS__IS_PRODUCTION_MODE ? WP_FS__ADDRESS_PRODUCTION : WP_FS__ADDRESS_LOCALHOST ) );
 
-	define( 'WP_FS__IS_LOCALHOST', ( substr( $_SERVER['REMOTE_ADDR'], 0, 4 ) == '127.' || $_SERVER['REMOTE_ADDR'] == '::1' ) );
-	define( 'WP_FS__IS_LOCALHOST_FOR_SERVER', ( false !== strpos( $_SERVER['HTTP_HOST'], 'localhost' ) ) );
+	if ( defined( 'WP_FS__LOCALHOST_IP' ) ) {
+		define( 'WP_FS__IS_LOCALHOST', ( WP_FS__LOCALHOST_IP === WP_FS__REMOTE_ADDR ) );
+	} else {
+		define( 'WP_FS__IS_LOCALHOST', WP_FS__IS_HTTP_REQUEST &&
+		                               is_string( WP_FS__REMOTE_ADDR ) &&
+		                               ( substr( WP_FS__REMOTE_ADDR, 0, 4 ) == '127.' ||
+		                                 WP_FS__REMOTE_ADDR == '::1' )
+		);
+	}
+
+	define( 'WP_FS__IS_LOCALHOST_FOR_SERVER', ( ! WP_FS__IS_HTTP_REQUEST ||
+	                                            false !== strpos( $_SERVER['HTTP_HOST'], 'localhost' ) ) );
 
 	// Set API address for local testing.
 	if ( ! WP_FS__IS_PRODUCTION_MODE ) {
-		define( 'FS_API__ADDRESS', 'http://api.freemius:8080' );
-		define( 'FS_API__SANDBOX_ADDRESS', 'http://sandbox-api.freemius:8080' );
+		define( 'FS_API__ADDRESS', WP_FS__API_ADDRESS_LOCALHOST );
+		define( 'FS_API__SANDBOX_ADDRESS', WP_FS__API_SANDBOX_ADDRESS_LOCALHOST );
 	}
 
 	define( 'WP_FS___OPTION_PREFIX', 'fs' . ( WP_FS__IS_PRODUCTION_MODE ? '' : '_dbg' ) . '_' );
@@ -92,15 +159,16 @@
 	}
 	define( 'WP_FS__OPTIONS_OPTION_NAME', WP_FS___OPTION_PREFIX . 'options' );
 
-	define( 'WP_FS__IS_HTTPS', (
-		                           // Checks if CloudFlare's HTTPS (Flexible SSL support)
-		                           isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === strtolower( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) ) ||
+	define( 'WP_FS__IS_HTTPS', ( WP_FS__IS_HTTP_REQUEST &&
+	                             // Checks if CloudFlare's HTTPS (Flexible SSL support)
+	                             isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === strtolower( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) ) ||
 	                           // Check if HTTPS request.
 	                           ( isset( $_SERVER['HTTPS'] ) && 'on' == $_SERVER['HTTPS'] ) ||
 	                           ( isset( $_SERVER['SERVER_PORT'] ) && 443 == $_SERVER['SERVER_PORT'] )
 	);
 
-	define( 'WP_FS__IS_POST_REQUEST', ( strtoupper( $_SERVER['REQUEST_METHOD'] ) == 'POST' ) );
+	define( 'WP_FS__IS_POST_REQUEST', ( WP_FS__IS_HTTP_REQUEST &&
+	                                    strtoupper( $_SERVER['REQUEST_METHOD'] ) == 'POST' ) );
 
 	/**
 	 * Billing Frequencies
@@ -119,7 +187,7 @@
 	/**
 	 * Times in seconds
 	 */
-//	define( 'WP_FS__TIME_5_MIN_IN_SEC', 300 );
+	define( 'WP_FS__TIME_5_MIN_IN_SEC', 300 );
 	define( 'WP_FS__TIME_10_MIN_IN_SEC', 600 );
 //	define( 'WP_FS__TIME_15_MIN_IN_SEC', 900 );
 	define( 'WP_FS__TIME_24_HOURS_IN_SEC', 86400 );
@@ -127,9 +195,16 @@
 	/**
 	 * Debugging
 	 */
-	define( 'WP_FS__DEBUG_SDK', ! empty( $_GET['fs_dbg'] ) );
-	define( 'WP_FS__ECHO_DEBUG_SDK', ! empty( $_GET['fs_dbg_echo'] ) );
+	if ( ! defined( 'WP_FS__DEBUG_SDK' ) ) {
+		$debug_mode = get_option( 'fs_debug_mode' );
+		define( 'WP_FS__DEBUG_SDK', is_numeric( $debug_mode ) ? ( 0 < $debug_mode ) : WP_FS__DEV_MODE );
+	}
+
+	define( 'WP_FS__ECHO_DEBUG_SDK', WP_FS__DEV_MODE && ! empty( $_GET['fs_dbg_echo'] ) );
 	define( 'WP_FS__LOG_DATETIME_FORMAT', 'Y-n-d H:i:s' );
+	if ( ! defined( 'FS_API__LOGGER_ON' ) ) {
+		define( 'FS_API__LOGGER_ON', WP_FS__DEBUG_SDK );
+	}
 
 	if ( WP_FS__ECHO_DEBUG_SDK ) {
 		error_reporting( E_ALL );
@@ -140,4 +215,5 @@
 
 
 	define( 'WP_FS__SCRIPT_START_TIME', time() );
+	define( 'WP_FS__DEFAULT_PRIORITY', 10 );
 	define( 'WP_FS__LOWEST_PRIORITY', 999999999 );

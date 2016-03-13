@@ -10,11 +10,10 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
  * @package CFC
- *
  */
 
-
-/*  Copyright 2015-2020 WPTie ( email: support at wptie.com )
+/*
+    Copyright 2015-2020 WPTie ( email: support at wptie.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -41,7 +40,6 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @package CFC
  * @since 0.0.1
- *
  */
 
 // Plugin version.
@@ -71,7 +69,6 @@ $cft_assets  = CFC_URL . '/assets/';
  * This is the main file of CFC which controls everything in this plugin.
  *
  * @since 0.0.1
- *
  */
 if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
     require_once( CFC_DIR . '/assets/inc/cfc.php' );
@@ -79,7 +76,6 @@ if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
 
 // Commented since freemius takes care of the redirect.
 // Makes no sense to make a duplicate redirect.
-
 /**
  * Plugin Activation.
  *
@@ -87,13 +83,15 @@ if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
  *
  * @since 0.0.1
  * @package CFC
- *
  */
-// register_activation_hook( __FILE__, 'cfc_welcome_screen_activate' );
 
-// function cfc_welcome_screen_activate() {
-//   set_transient( '_welcome_redirect_cfc', true );
-// }
+
+/*
+// The register_activation_hook( __FILE__, 'cfc_welcome_screen_activate' ); hook.
+function cfc_welcome_screen_activate() {
+  set_transient( '_welcome_redirect_cfc', true );
+}
+*/
 
 
 /**
@@ -101,12 +99,14 @@ if ( file_exists( CFC_DIR . '/assets/inc/cfc.php' ) ) {
  *
  * Delet the welcome page transient.
  *
- * @since 0.0.1
+ * @since   0.0.1
  * @package CFC
- *
  */
-// register_deactivation_hook( __FILE__, 'cfc_welcome_screen_deactivate' );
 
-// function cfc_welcome_screen_deactivate() {
-//   delete_transient( '_welcome_redirect_cfc' );
-// }
+/*
+// The register_deactivation_hook( __FILE__, 'cfc_welcome_screen_deactivate' ); hook.
+function cfc_welcome_screen_deactivate() {
+
+  delete_transient( '_welcome_redirect_cfc' );
+}
+*/

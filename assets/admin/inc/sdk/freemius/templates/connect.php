@@ -6,15 +6,16 @@
 	 * @since       1.0.7
 	 */
 
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'json2' );
-	fs_enqueue_local_script( 'postmessage', 'nojquery.ba-postmessage.min.js' );
-	fs_enqueue_local_script( 'fs-postmessage', 'postmessage.js' );
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit;
+	}
 
-	fs_enqueue_local_style( 'fs_connect', '/admin/connect.css' );
+	$slug                  = $VARS['slug'];
+	$fs                    = freemius( $slug );
+	$is_pending_activation = $fs->is_pending_activation();
 
-	$slug         = $VARS['slug'];
-	$fs           = freemius( $slug );
+	$fs->_enqueue_connect_essentials();
+
 	$current_user = wp_get_current_user();
 
 	$first_name = $current_user->user_firstname;
@@ -28,55 +29,106 @@
 		$site_url = substr( $site_url, $protocol_pos + 3 );
 	}
 
-$cfc_version = CFC_VERSION;
-
+	$freemius_site_url = $fs->has_paid_plan() ?
+		'https://freemius.com/wordpress/' :
+		// Insights platform information.
+		'https://freemius.com/wordpress/insights/';
 ?>
 
 
- <div class="wrap about-wrap">
+<!-- START By CFC -->
+<?php $cfc_version = CFC_VERSION; ?>
+<div class="wrap about-wrap">
 
- 	<h1><?php printf( __( 'CF7 Customizer &nbsp;%s' ), $cfc_version ); ?></h1>
+	<h1><?php printf( __( 'CF7 Customizer &nbsp;%s' ), $cfc_version ); ?></h1>
 
- 	<div class="about-text">
- 		<?php printf( __( 'CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.' ), $cfc_version ); ?>
- 	</div>
+	<div class="about-text">
+		<?php printf( __( 'CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.' ), $cfc_version ); ?>
+	</div>
 
- 	<div class="cfc_logo"></div>
+	<div class="cfc_logo"></div>
+
+<!-- END By CFC -->
 
 
-<div id="fs_connect" class="wrap<?php if ( ! $fs->enable_anonymous() ) {
+<div id="fs_connect" class="wrap<?php if ( ! $fs->enable_anonymous() || $is_pending_activation ) {
 	echo ' fs-anonymous-disabled';
-} ?>"
-
-	style="width: 75%;"
-
->
-
+} ?>" style="width: 75%;" >
 	<div class="fs-content">
 		<p><?php
-				echo $fs->apply_filters( 'connect_message', sprintf(
-					__fs( 'cfc_welcome' ) . '</br></br>' .
-					__fs( 'cfc_connect_allow' ) . '</br></br>' .
-					__fs( 'cfc_connect_customize' ) . '</br></br>',
-					$first_name,
-					'<b>' . $fs->get_plugin_name() . '</b>',
-					'<a href="' . get_site_url() . '" target="_blank">' . $site_url . '</a>'
-				) );
+				if ( $is_pending_activation ) {
+					echo $fs->apply_filters( 'pending_activation_message', sprintf(
+						__fs( 'thanks-x', $slug ) . '<br>' .
+						__fs( 'pending-activation-message', $slug ),
+						$first_name,
+						'<b>' . $fs->get_plugin_name() . '</b>',
+						'<b>' . $current_user->user_email . '</b>'
+					) );
+				} else {
+					$filter                = 'connect_message';
+					$default_optin_message = 'connect-message';
+
+					if ( $fs->is_plugin_update() ) {
+						// If Freemius was added on a plugin update, set different
+						// opt-in message.
+						$default_optin_message = 'connect-message_on-update';
+
+						// If user customized the opt-in message on update, use
+						// that message. Otherwise, fallback to regular opt-in
+						// custom message if exist.
+						if ( $fs->has_filter( 'connect_message_on_update' ) ) {
+							$filter = 'connect_message_on_update';
+						}
+					}
+
+					// echo $fs->apply_filters( $filter,
+					// 	sprintf(
+					// 		__fs( 'hey-x', $slug ) . '<br>' .
+					// 		__fs( $default_optin_message, $slug ),
+					// 		$first_name,
+					// 		'<b>' . $fs->get_plugin_name() . '</b>',
+					// 		'<b>' . $current_user->user_login . '</b>',
+					// 		'<a href="' . $site_url . '" target="_blank">' . $site_url . '</a>',
+					// 		'<a href="' . $freemius_site_url . '" target="_blank">freemius.com</a>'
+					// 	),
+					// 	$first_name,
+					// 	$fs->get_plugin_name(),
+					// 	$current_user->user_login,
+					// 	'<a href="' . $site_url . '" target="_blank">' . $site_url . '</a>',
+					// 	'<a href="' . $freemius_site_url . '" target="_blank">freemius.com</a>'
+					// );
+				}
 			?></p>
+<!-- START By CFC -->
+
+
+				<p><?php
+						echo $fs->apply_filters( 'connect_message', sprintf(
+							__fs( 'cfc_welcome' ) . '</br></br>' .
+							__fs( 'cfc_connect_allow' ) . '</br></br>' .
+							__fs( 'cfc_connect_customize' ) . '</br></br>',
+							$first_name,
+							'<b>' . $fs->get_plugin_name() . '</b>',
+							'<a href="' . get_site_url() . '" target="_blank">' . $site_url . '</a>'
+						) );
+					?></p>
+
+<!-- END By CFC -->
+
 	</div>
 	<div class="fs-actions">
-		<?php if ( $fs->enable_anonymous() ) : ?>
+		<?php if ( $fs->enable_anonymous() && ! $is_pending_activation ) : ?>
 			<a href="<?php echo wp_nonce_url( $fs->_get_admin_page_url( '', array( 'fs_action' => $slug . '_skip_activation' ) ), $slug . '_skip_activation' ) ?>"
-			   class="button button-secondary" tabindex="2"><?php _efs( 'skip' ) ?></a>
+			   class="button button-secondary" tabindex="2"><?php _efs( 'skip', $slug ) ?></a>
 		<?php endif ?>
+
 		<?php $fs_user = Freemius::_get_user_by_email( $current_user->user_email ) ?>
-		<?php if ( is_object( $fs_user ) ) : ?>
+		<?php if ( is_object( $fs_user ) && ! $is_pending_activation ) : ?>
 			<form action="" method="POST">
 				<input type="hidden" name="fs_action" value="<?php echo $slug ?>_activate_existing">
 				<?php wp_nonce_field( 'activate_existing_' . $fs->get_public_key() ) ?>
 				<button class="button button-primary" tabindex="1"
-				        type="submit"><?php _efs( 'opt-in-connect' ) ?>
-					&nbsp;&#10140;</button>
+				        type="submit"><?php _efs( 'opt-in-connect', $slug ) ?></button>
 			</form>
 		<?php else : ?>
 			<form method="post" action="<?php echo WP_FS__ADDRESS ?>/action/service/user/install/">
@@ -86,7 +138,7 @@ $cfc_version = CFC_VERSION;
 						'user_lastname'     => $current_user->user_lastname,
 						'user_nickname'     => $current_user->user_nicename,
 						'user_email'        => $current_user->user_email,
-						'user_ip'           => fs_get_ip(),
+						'user_ip'           => WP_FS__REMOTE_ADDR,
 						'plugin_slug'       => $slug,
 						'plugin_id'         => $fs->get_id(),
 						'plugin_public_key' => $fs->get_public_key(),
@@ -127,49 +179,74 @@ $cfc_version = CFC_VERSION;
 					<input type="hidden" name="<?php echo $name ?>" value="<?php echo esc_attr( $value ) ?>">
 				<?php endforeach ?>
 				<button class="button button-primary" tabindex="1"
-				        type="submit"><?php _efs( 'opt-in-connect-started' ) ?>
-					&nbsp;&#10140;</button>
+				        type="submit"><?php _efs( $is_pending_activation ? 'resend-activation-email' : 'opt-in-connect', $slug ) ?></button>
 			</form>
 		<?php endif ?>
-	</div>
-	<div class="fs-permissions">
-		<a class="fs-trigger " href="#"><?php _efs( 'cfc_what_is_this' ) ?></a>
-		<ul>
-			<li>
-				<i class="dashicons dashicons-admin-users"></i>
+	</div><?php
 
-				<div>
-					<span><?php _efs( 'permissions-profile' ) ?></span>
+		// Set core permission list items.
+		$permissions = array(
+			'profile' => array(
+				'icon-class' => 'dashicons dashicons-admin-users',
+				'label'      => __fs( 'permissions-profile' ),
+				'desc'       => __fs( 'permissions-profile_desc' ),
+				'priority'   => 5,
+			),
+			'site'    => array(
+				'icon-class' => 'dashicons dashicons-wordpress',
+				'label'      => __fs( 'permissions-site' ),
+				'desc'       => __fs( 'permissions-site_desc' ),
+				'priority'   => 10,
+			),
+			'events'  => array(
+				'icon-class' => 'dashicons dashicons-admin-plugins',
+				'label'      => __fs( 'permissions-events' ),
+				'desc'       => __fs( 'permissions-events_desc' ),
+				'priority'   => 20,
+			),
+		);
 
-					<p><?php _efs( 'permissions-profile_desc' ) ?></p>
-				</div>
-			</li>
-			<li>
-				<i class="dashicons dashicons-wordpress"></i>
+		// Add newsletter permissions if enabled.
+		if ( $fs->is_permission_requested( 'newsletter' ) ) {
+			$permissions['newsletter'] = array(
+				'icon-class' => 'dashicons dashicons-email-alt',
+				'label'      => __fs( 'permissions-newsletter' ),
+				'desc'       => __fs( 'permissions-newsletter_desc' ),
+				'priority'   => 15,
+			);
+		}
 
-				<div>
-					<span><?php _efs( 'permissions-site' ) ?></span>
+		// Allow filtering of the permissions list.
+		$permissions = $fs->apply_filters( 'permission_list', $permissions );
 
-					<p><?php _efs( 'permissions-site_desc' ) ?></p>
-				</div>
-			</li>
-			<li>
-				<i class="dashicons dashicons-admin-plugins"></i>
+		// Sort by priority.
+		uasort( $permissions, 'fs_sort_by_priority' );
 
-				<div>
-					<span><?php _efs( 'permissions-events' ) ?></span>
+		if ( ! empty( $permissions ) ) : ?>
+			<div class="fs-permissions">
+				<a class="fs-trigger" href="#"><?php _e( 'What gets connected?', 'CFC' ); ?></a>
+				<ul><?php
+						foreach ( $permissions as $id => $permission ) : ?>
+							<li id="fs-permission-<?php esc_attr_e( $id ); ?>"
+							    class="fs-permission fs-<?php esc_attr_e( $id ); ?>">
+								<i class="<?php esc_attr_e( $permission['icon-class'] ); ?>"></i>
 
-					<p><?php _efs( 'permissions-events_desc' ) ?></p>
-				</div>
-			</li>
-		</ul>
-	</div>
-	 <!--<div class="fs-terms">
-		<a href="https://freemius.com/privacy/" target="_blank"><?php _efs( 'privacy-policy' ) ?></a>
+								<div>
+									<span><?php esc_html_e( $permission['label'] ); ?></span>
+
+									<p><?php esc_html_e( $permission['desc'] ); ?></p>
+								</div>
+							</li>
+						<?php endforeach; ?>
+				</ul>
+			</div>
+		<?php endif; ?>
+<!--
+	<div class="fs-terms">
+		<a href="https://freemius.com/privacy/" target="_blank"><?php _efs( 'privacy-policy', $slug ) ?></a>
 		&nbsp;&nbsp;-&nbsp;&nbsp;
-		<a href="https://freemius.com/terms/" target="_blank"><?php _efs( 'tos' ) ?></a>
+		<a href="https://freemius.com/terms/" target="_blank"><?php _efs( 'tos', $slug ) ?></a>
 	</div> -->
-</div>
 </div>
 <script type="text/javascript">
 	(function ($) {
@@ -178,7 +255,8 @@ $cfc_version = CFC_VERSION;
 			$(document.body).css({'cursor': 'wait'});
 		});
 		$('.button.button-primary').on('click', function () {
-			$(this).html('<?php _efs( 'activating' ) ?>...').css({'cursor': 'wait'});
+			$(this).addClass('fs-loading');
+			$(this).html('<?php _efs( $is_pending_activation ? 'sending-email' : 'activating' , $slug ) ?>...').css({'cursor': 'wait'});
 		});
 		$('.fs-permissions .fs-trigger').on('click', function () {
 			$('.fs-permissions').toggleClass('fs-open');

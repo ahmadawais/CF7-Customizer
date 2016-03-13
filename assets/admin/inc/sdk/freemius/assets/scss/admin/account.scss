@@ -6,11 +6,35 @@
         max-width: 700px;
     }
 
+    h3
+    {
+        font-size: 1.3em;
+        padding: 12px 15px;
+        margin: 0 0 12px 0;
+        line-height: 1.4;
+        border-bottom: 1px solid #F1F1F1;
+    }
+
+    i.dashicons
+    {
+        font-size: 1.2em;
+        height: 1.2em;
+        width: 1.2em;
+    }
+
+    .button
+    {
+        i.dashicons
+        {
+            vertical-align: middle;
+        }
+    }
+
     .fs-header-actions
     {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 17px;
+        right: 15px;
         font-size: 0.9em;
 
         ul
@@ -36,7 +60,7 @@
 
 .rtl #fs_account .fs-header-actions
 {
-    left: 10px;
+    left: 15px;
     right: auto;
 }
 
@@ -47,18 +71,6 @@
     form
     {
         display: inline-block;
-    }
-
-    td label
-    {
-        background: orange;
-        color: #fff;
-        display: inline-block;
-        border-radius: 3px;
-        padding: 5px;
-        font-size: 11px;
-        line-height: 11px;
-        vertical-align: baseline;
     }
 
     tr
@@ -102,8 +114,45 @@
     }
 }
 
+label.fs-tag
+{
+    background: #ffba00;
+    color: #fff;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 11px;
+    line-height: 11px;
+    vertical-align: baseline;
+
+    &.fs-warn
+    {
+        background: #ffba00;
+    }
+    &.fs-success
+    {
+        background: #46b450;
+    }
+    &.fs-error
+    {
+        background: #dc3232;
+    }
+}
+
 #fs_addons
 {
+    h3
+    {
+        border: none;
+        margin-bottom: 0;
+        padding: 4px 5px;
+    }
+
+    td
+    {
+        vertical-align: middle;
+    }
+
     td:first-child,
     th:first-child
     {

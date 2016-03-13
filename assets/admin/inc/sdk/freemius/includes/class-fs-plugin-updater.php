@@ -27,6 +27,11 @@
 		 * @since 1.0.4
 		 */
 		private $_logger;
+		/**
+		 * @var bool
+		 * @since 1.1.7
+		 */
+		private $_update_checked = false;
 
 		function __construct( Freemius $freemius ) {
 			$this->_fs = $freemius;
@@ -52,12 +57,73 @@
 				'pre_set_site_transient_update_plugins_filter'
 			) );
 
+			if ( ! $this->_fs->has_active_license() ) {
+				/**
+				 * If user has the premium plugin's code but do NOT have an active license,
+				 * encourage him to upgrade by showing that there's a new release, but instead
+				 * of showing an update link, show upgrade link to the pricing page.
+				 *
+				 * @since 1.1.6
+				 *
+				 */
+				// WP 2.9+
+				add_action( "after_plugin_row_{$this->_fs->get_plugin_basename()}", array(
+					&$this,
+					'catch_plugin_update_row'
+				), 9 );
+				add_action( "after_plugin_row_{$this->_fs->get_plugin_basename()}", array(
+					&$this,
+					'edit_and_echo_plugin_update_row'
+				), 11, 2 );
+			}
+
 			if ( ! WP_FS__IS_PRODUCTION_MODE ) {
 				add_filter( 'http_request_host_is_external', array(
 					$this,
 					'http_request_host_is_external_filter'
 				), 10, 3 );
 			}
+		}
+
+		/**
+		 * Capture plugin update row by turning output buffering.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.1.6
+		 */
+		function catch_plugin_update_row() {
+			ob_start();
+		}
+
+		/**
+		 * Overrides default update message format with "renew your license" message.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.1.6
+		 */
+		function edit_and_echo_plugin_update_row( $file, $plugin_data ) {
+			$plugin_update_row = ob_get_clean();
+
+			$current = get_site_transient( 'update_plugins' );
+			if ( ! isset( $current->response[ $file ] ) ) {
+				echo $plugin_update_row;
+
+				return false;
+			}
+
+			$r = $current->response[ $file ];
+
+			$plugin_update_row = preg_replace(
+				'/(\<div.+>)(.+)(\<a.+\<a.+)\<\/div\>/is',
+				'$1 $2 ' . sprintf(
+					__fs( 'renew-license-now' ),
+					'<a href="' . $this->_fs->pricing_url() . '">', '</a>',
+					$r->new_version ) .
+				'$4',
+				$plugin_update_row
+			);
+
+			echo $plugin_update_row;
 		}
 
 		/**
@@ -101,13 +167,22 @@
 			$this->_logger->entrance();
 
 			if ( empty( $transient_data ) ||
-			     defined( 'WP_FS__UNINSTALL_MODE' )
+			     defined( 'WP_FS__UNINSTALL_MODE' ) ||
+			     /**
+			      * From some reason 'pre_set_site_transient_update_plugins' filter
+			      * is called four times in a row.
+			      *
+			      * @since 1.1.7.3
+			      */
+			     $this->_update_checked
 			) {
 				return $transient_data;
 			}
 
 			// Get plugin's newest update.
-			$new_version = $this->_fs->get_update();
+			$new_version = $this->_fs->get_update(false, false);
+
+			$this->_update_checked = true;
 
 			if ( is_object( $new_version ) ) {
 				$this->_logger->log( 'Found newer plugin version ' . $new_version->version );
@@ -133,11 +208,11 @@
 		 * @since  1.0.5
 		 *
 		 * @param string $action
-		 * @param array  $args
+		 * @param object $args
 		 *
 		 * @return bool|mixed
 		 */
-		private function _fetch_plugin_info_from_repository( $action, $args ) {
+		static function _fetch_plugin_info_from_repository( $action, $args ) {
 			$url = $http_url = 'http://api.wordpress.org/plugins/info/1.0/';
 			if ( $ssl = wp_http_supports( array( 'ssl' ) ) ) {
 				$url = set_url_scheme( $url, 'https' );
@@ -205,7 +280,7 @@
 			$plugin_in_repo = false;
 			if ( ! $is_addon ) {
 				// Try to fetch info from .org repository.
-				$data = $this->_fetch_plugin_info_from_repository( $action, $args );
+				$data = self::_fetch_plugin_info_from_repository( $action, $args );
 
 				$plugin_in_repo = ( false !== $data );
 			}
@@ -233,7 +308,7 @@ if ( !isset($info->error) ) {
 			$new_version = $this->_fs->_fetch_latest_version( $is_addon ? $addon->id : false );
 
 			if ( $is_addon ) {
-				$data->name    = $addon->title . ' ' . __fs( 'addon' );
+				$data->name    = $addon->title . ' ' . __fs( 'addon', $this->_fs->get_slug() );
 				$data->slug    = $addon->slug;
 				$data->url     = WP_FS__ADDRESS;
 				$data->package = $new_version->url;

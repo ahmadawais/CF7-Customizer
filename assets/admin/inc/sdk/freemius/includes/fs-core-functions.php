@@ -58,20 +58,6 @@
 		return ob_get_clean();
 	}
 
-	function __fs( $key ) {
-		global $fs_text;
-
-		if ( ! isset( $fs_text ) ) {
-			require_once( dirname( __FILE__ ) . '/i18n.php' );
-		}
-
-		return isset( $fs_text[ $key ] ) ? $fs_text[ $key ] : $key;
-	}
-
-	function _efs( $key ) {
-		echo __fs( $key );
-	}
-
 	/* Scripts and styles including.
 	--------------------------------------------------------------------------------------------*/
 	function fs_enqueue_local_style( $handle, $path, $deps = array(), $ver = false, $media = 'all' ) {
@@ -94,6 +80,10 @@
 		}
 
 		wp_enqueue_script( $handle, plugins_url( plugin_basename( WP_FS__DIR_JS . '/' . trim( $path, '/' ) ) ), $deps, $ver, $in_footer );
+	}
+
+	function fs_img_url( $path, $img_dir = WP_FS__DIR_IMG ) {
+		return plugins_url( plugin_basename( $img_dir . '/' . trim( $path, '/' ) ) );
 	}
 
 	/* Request handlers.
@@ -148,131 +138,106 @@
 		return ( is_admin() && $_REQUEST['page'] === $menu_slug );
 	}
 
-	/**
-	 * Get client IP.
-	 *
-	 * @author Vova Feldman (@svovaf)
-	 * @since  1.1.2
-	 *
-	 * @return string|null
-	 */
-	function fs_get_ip() {
-		$fields = array(
-			'HTTP_CF_CONNECTING_IP',
-			'HTTP_CLIENT_IP',
-			'HTTP_X_FORWARDED_FOR',
-			'HTTP_X_FORWARDED',
-			'HTTP_FORWARDED_FOR',
-			'HTTP_FORWARDED',
-			'REMOTE_ADDR',
-		);
-
-		foreach ( $fields as $ip_field ) {
-			if ( ! empty( $_SERVER[ $ip_field ] ) ) {
-				return $_SERVER[ $ip_field ];
-			}
-		}
-
-		return null;
-	}
-
 	/* Core UI.
 	--------------------------------------------------------------------------------------------*/
-	function fs_ui_action_button( $slug, $page, $action, $title, $params = array(), $is_primary = true ) {
-		?><a class="button<?php if ( $is_primary ) {
-			echo ' button-primary';
-		} ?>"
-		     href="<?php echo wp_nonce_url( freemius( $slug )->_get_admin_page_url( $page, array_merge( $params, array( 'fs_action' => $action ) ) ), $action ) ?>"><?php echo $title ?></a><?php
+	/**
+	 * @param string      $slug
+	 * @param string      $page
+	 * @param string      $action
+	 * @param string      $title
+	 * @param array       $params
+	 * @param bool        $is_primary
+	 * @param string|bool $icon_class   Optional class for an icon (since 1.1.7).
+	 * @param string|bool $confirmation Optional confirmation message before submit (since 1.1.7).
+	 * @param string      $method       Since 1.1.7
+	 *
+	 * @uses fs_ui_get_action_button()
+	 */
+	function fs_ui_action_button(
+		$slug,
+		$page,
+		$action,
+		$title,
+		$params = array(),
+		$is_primary = true,
+		$icon_class = false,
+		$confirmation = false,
+		$method = 'GET'
+	) {
+		echo fs_ui_get_action_button(
+			$slug,
+			$page,
+			$action,
+			$title,
+			$params,
+			$is_primary,
+			$icon_class,
+			$confirmation,
+			$method
+		);
+	}
+
+	/**
+	 * @author Vova Feldman (@svovaf)
+	 * @since  1.1.7
+	 *
+	 * @param string      $slug
+	 * @param string      $page
+	 * @param string      $action
+	 * @param string      $title
+	 * @param array       $params
+	 * @param bool        $is_primary
+	 * @param string|bool $icon_class   Optional class for an icon.
+	 * @param string|bool $confirmation Optional confirmation message before submit.
+	 * @param string      $method
+	 *
+	 * @return string
+	 */
+	function fs_ui_get_action_button(
+		$slug,
+		$page,
+		$action,
+		$title,
+		$params = array(),
+		$is_primary = true,
+		$icon_class = false,
+		$confirmation = false,
+		$method = 'GET'
+	) {
+		// Prepend icon (if set).
+		$title = ( is_string( $icon_class ) ? '<i class="' . $icon_class . '"></i> ' : '' ) . $title;
+
+		if ( is_string( $confirmation ) ) {
+			return sprintf( '<form action="%s" method="%s"><input type="hidden" name="fs_action" value="%s">%s<a href="#" class="%s" onclick="if (confirm(\'%s\')) this.parentNode.submit(); return false;">%s</a></form>',
+				freemius( $slug )->_get_admin_page_url( $page, $params ),
+				$method,
+				$action,
+				wp_nonce_field( $action, '_wpnonce', true, false ),
+				'button' . ( $is_primary ? ' button-primary' : '' ),
+				$confirmation,
+				$title
+			);
+		} else if ('GET' !== strtoupper($method)) {
+			return sprintf( '<form action="%s" method="%s"><input type="hidden" name="fs_action" value="%s">%s<a href="#" class="%s" onclick="this.parentNode.submit(); return false;">%s</a></form>',
+				freemius( $slug )->_get_admin_page_url( $page, $params ),
+				$method,
+				$action,
+				wp_nonce_field( $action, '_wpnonce', true, false ),
+				'button' . ( $is_primary ? ' button-primary' : '' ),
+				$title
+			);
+		} else {
+			return sprintf( '<a href="%s" class="%s">%s</a></form>',
+				wp_nonce_url( freemius( $slug )->_get_admin_page_url( $page, array_merge( $params, array( 'fs_action' => $action ) ) ), $action ),
+				'button' . ( $is_primary ? ' button-primary' : '' ),
+				$title
+			);
+		}
 	}
 
 	function fs_ui_action_link( $slug, $page, $action, $title, $params = array() ) {
 		?><a class=""
 		     href="<?php echo wp_nonce_url( freemius( $slug )->_get_admin_page_url( $page, array_merge( $params, array( 'fs_action' => $action ) ) ), $action ) ?>"><?php echo $title ?></a><?php
-	}
-
-	/* Core Redirect (copied from BuddyPress).
-	--------------------------------------------------------------------------------------------*/
-	/**
-	 * Redirects to another page, with a workaround for the IIS Set-Cookie bug.
-	 *
-	 * @link  http://support.microsoft.com/kb/q176113/
-	 * @since 1.5.1
-	 * @uses  apply_filters() Calls 'wp_redirect' hook on $location and $status.
-	 *
-	 * @param string $location The path to redirect to
-	 * @param int    $status   Status code to use
-	 *
-	 * @return bool False if $location is not set
-	 */
-	function fs_redirect( $location, $status = 302 ) {
-		global $is_IIS;
-
-		if ( headers_sent() ) {
-			return false;
-		}
-
-		if ( ! $location ) // allows the wp_redirect filter to cancel a redirect
-		{
-			return false;
-		}
-
-		$location = fs_sanitize_redirect( $location );
-
-		if ( $is_IIS ) {
-			header( "Refresh: 0;url=$location" );
-		} else {
-			if ( php_sapi_name() != 'cgi-fcgi' ) {
-				status_header( $status );
-			} // This causes problems on IIS and some FastCGI setups
-			header( "Location: $location" );
-		}
-
-		return true;
-	}
-
-	/**
-	 * Sanitizes a URL for use in a redirect.
-	 *
-	 * @since 2.3
-	 *
-	 * @param string $location
-	 *
-	 * @return string redirect-sanitized URL
-	 */
-	function fs_sanitize_redirect( $location ) {
-		$location = preg_replace( '|[^a-z0-9-~+_.?#=&;,/:%!]|i', '', $location );
-		$location = fs_kses_no_null( $location );
-
-		// remove %0d and %0a from location
-		$strip = array( '%0d', '%0a' );
-		$found = true;
-		while ( $found ) {
-			$found = false;
-			foreach ( (array) $strip as $val ) {
-				while ( strpos( $location, $val ) !== false ) {
-					$found    = true;
-					$location = str_replace( $val, '', $location );
-				}
-			}
-		}
-
-		return $location;
-	}
-
-	/**
-	 * Removes any NULL characters in $string.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $string
-	 *
-	 * @return string
-	 */
-	function fs_kses_no_null( $string ) {
-		$string = preg_replace( '/\0+/', '', $string );
-		$string = preg_replace( '/(\\\\0)+/', '', $string );
-
-		return $string;
 	}
 
 	/*function fs_error_handler($errno, $errstr, $errfile, $errline)
@@ -297,29 +262,6 @@
 	}
 
 	set_error_handler('fs_error_handler');*/
-
-	if ( function_exists( 'wp_normalize_path' ) ) {
-		/**
-		 * Normalize a filesystem path.
-		 *
-		 * Replaces backslashes with forward slashes for Windows systems, and ensures
-		 * no duplicate slashes exist.
-		 *
-		 * @param string $path Path to normalize.
-		 *
-		 * @return string Normalized path.
-		 */
-		function fs_normalize_path( $path ) {
-			return wp_normalize_path( $path );
-		}
-	} else {
-		function fs_normalize_path( $path ) {
-			$path = str_replace( '\\', '/', $path );
-			$path = preg_replace( '|/+|', '/', $path );
-
-			return $path;
-		}
-	}
 
 	function fs_nonce_url( $actionurl, $action = - 1, $name = '_wpnonce' ) {
 //		$actionurl = str_replace( '&amp;', '&', $actionurl );
@@ -351,21 +293,22 @@
 	 *
 	 * @param string $url
 	 * @param bool   $omit_host
+	 * @param array  $ignore_params
 	 *
 	 * @return string
 	 */
-	function fs_canonize_url( $url, $omit_host = false ) {
+	function fs_canonize_url( $url, $omit_host = false, $ignore_params = array() ) {
 		$parsed_url = parse_url( strtolower( $url ) );
 
-		if ( ! isset( $parsed_url['host'] ) ) {
-			return $url;
-		}
+//		if ( ! isset( $parsed_url['host'] ) ) {
+//			return $url;
+//		}
 
-		$canonical = ($omit_host ? '' : $parsed_url['host'] ) . $parsed_url['path'];
+		$canonical = ( ( $omit_host || ! isset( $parsed_url['host'] ) ) ? '' : $parsed_url['host'] ) . $parsed_url['path'];
 
 		if ( isset( $parsed_url['query'] ) ) {
 			parse_str( $parsed_url['query'], $queryString );
-			$canonical .= '?' . fs_canonize_query_string( $queryString );
+			$canonical .= '?' . fs_canonize_query_string( $queryString, $ignore_params );
 		}
 
 		return $canonical;
@@ -381,7 +324,7 @@
 	 *
 	 * @return string
 	 */
-	function fs_canonize_query_string( array $params, array $ignore_params = array(), $params_prefix = false ) {
+	function fs_canonize_query_string( array $params, array &$ignore_params, $params_prefix = false ) {
 		if ( ! is_array( $params ) || 0 === count( $params ) ) {
 			return '';
 		}
@@ -443,4 +386,44 @@
 
 	#endregion Url Canonization ------------------------------------------------------------------
 
+	function fs_download_image( $from, $to ) {
+		$ch = curl_init( $from );
+		$fp = fopen( fs_normalize_path( $to ), 'wb' );
+		curl_setopt( $ch, CURLOPT_FILE, $fp );
+		curl_setopt( $ch, CURLOPT_HEADER, 0 );
+		curl_exec( $ch );
+		curl_close( $ch );
+		fclose( $fp );
+	}
+
+	/* General Utilities
+	--------------------------------------------------------------------------------------------*/
+
+	/**
+	 * Sorts an array by the value of the priority key.
+	 *
+	 * @author Daniel Iser (@danieliser)
+	 * @since  1.1.7
+	 *
+	 * @param $a
+	 * @param $b
+	 *
+	 * @return int
+	 */
+	function fs_sort_by_priority( $a, $b ) {
+
+		// If b has a priority and a does not, b wins.
+		if ( ! isset( $a['priority'] ) && isset( $b['priority'] ) ) {
+			return 1;
+		} // If b has a priority and a does not, b wins.
+		elseif ( isset( $a['priority'] ) && ! isset( $b['priority'] ) ) {
+			return - 1;
+		} // If neither has a priority or both priorities are equal its a tie.
+		elseif ( ( ! isset( $a['priority'] ) && ! isset( $b['priority'] ) ) || $a['priority'] === $b['priority'] ) {
+			return 0;
+		}
+
+		// If both have priority return the winner.
+		return ( $a['priority'] < $b['priority'] ) ? - 1 : 1;
+	}
 
