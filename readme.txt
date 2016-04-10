@@ -1,5 +1,5 @@
 === CF7 Customizer ===
-Contributors: mrahmadawais, WPTie
+Contributors: mrahmadawais, WPTie, freemius
 Donate link: http://AhmadAwais.com/contact/
 Tags: contact form 7, contact form 7 customizer, cf7 customizer, contact form 7 customiser, contact form 7 themes, cf7 skin, cf7 theme, cf7 Style, cf7 template, cf7, CF7 addon, CF7 style, form templates, contact form 7, CF7Customizer, CF7 Customisor, contact form 7 css, contact form 7 style, contact form 7 styling, custom form styling, customize, multiple form styling, styling contact form, styling contact form 7, Contact Form 7 Skins, form CSS, cf7 form, skin, Style, template
 Requires at least: 4.0.0
@@ -12,7 +12,8 @@ CF7 Customizer is an intuitive plugin to design your contact forms via WordPress
 
 == Description ==
 
-CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
+> CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
+
 ###Getting started:
 
 Let's get you started
