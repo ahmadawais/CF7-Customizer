@@ -54,9 +54,9 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/tgm/cfc_tgm-init.php' ) ) {
  * @since 0.0.1
  *
  */
-// if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' ) ) {
-//     require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' );
-// }
+if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' ) ) {
+    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-framework-embedder.php' );
+}
 
 /**
  * Titan Framework.
@@ -68,7 +68,7 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/tgm/cfc_tgm-init.php' ) ) {
  *
  */
 if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' ) ) {
-    require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' );
+    // require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' );
 }
 
 

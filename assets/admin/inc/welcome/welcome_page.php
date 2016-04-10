@@ -38,8 +38,8 @@ $cfc_version = CFC_VERSION;
 				<h2>Get Started</h2>
 
 				<ul>
-					<?php if ( ! defined( 'WPCF7_VERSION' ) || ! class_exists( 'TitanFrameworkChecker' ) ) { ?>
-						<li><strong>Step #0:&rarr; </strong><a href="/wp-admin/plugins.php?page=cfc-install-plugins" target="_blank">Install & Activate <code>Contact Form 7 & TitanFramework</code></a>.</li>
+					<?php if ( ! defined( 'WPCF7_VERSION' ) ) { ?>
+						<li><strong>Step #0:&rarr; </strong><a href="/wp-admin/plugins.php?page=cfc-install-plugins" target="_blank">Install & Activate <code>Contact Form 7</code></a>.</li>
 					<?php } ?>
 
 					<li><strong>Step #1:</strong> <a href="/wp-admin/admin.php?page=wpcf7-new" target="_blank">&rarr; Add New Form</a> and <code>SAVE</code> it.</li>

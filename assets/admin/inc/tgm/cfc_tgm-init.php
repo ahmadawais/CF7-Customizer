@@ -52,13 +52,13 @@ function cfc_tgm_register_required_plugins() {
 		),
 
 		// Add Titan Framework plugin.
-		array(
-			'name'             => 'Titan Framework',
-			'slug'             => 'titan-framework',
-			'required'         => true,
-			'force_activation' => true
+		// array(
+		// 	'name'             => 'Titan Framework',
+		// 	'slug'             => 'titan-framework',
+		// 	'required'         => true,
+		// 	'force_activation' => true
 
-		),
+		// ),
 
 	);
 

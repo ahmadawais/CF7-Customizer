@@ -118,6 +118,8 @@
 		'deactivate-license'                       => __( 'Deactivate License', 'freemius' ),
 		'activate'                                 => __( 'Activate', 'freemius' ),
 		'deactivate'                               => __( 'Deactivate', 'freemius' ),
+		'no-deactivate'                            => __( 'No - just deactivate', 'freemius' ),
+		'yes-do-your-thing'                        => __( 'Yes - do your thing', 'freemius' ),
 		'active'                                   => _x( 'Active', 'active mode', 'freemius' ),
 		'is-active'                                => _x( 'Is Active', 'is active mode?', 'freemius' ),
 		'install-now'                              => __( 'Install Now', 'freemius' ),
@@ -141,7 +143,6 @@
 		'add-ons-missing'                          => __( 'We could\'nt load the add-ons list. It\'s probably an issue on our side, please try to come back in few minutes.', 'freemius' ),
 		#region Plugin Deactivation
 		'deactivation-share-reason'                => __( 'If you have a moment, please let us know why you are deactivating', 'freemius' ),
-		'deactivation-modal-button-deactivate'     => __( 'Deactivate', 'freemius' ),
 		'deactivation-modal-button-confirm'        => __( 'Yes - Deactivate', 'freemius' ),
 		'deactivation-modal-button-submit'         => __( 'Submit & Deactivate', 'freemius' ),
 		'deactivation-modal-button-cancel'         => _x( 'Cancel', 'the text of the cancel button of the plugin deactivation dialog box.', 'freemius' ),
@@ -241,7 +242,7 @@
 		'x-updated'                                => __( 'You have successfully updated your %s.', 'freemius' ),
 		'name-update-failed-message'               => __( 'Please provide your full name.', 'freemius' ),
 		'verification-email-sent-message'          => __( 'Verification mail was just sent to %s. If you can\'t find it after 5 min, please check your spam box.', 'freemius' ),
-		'addons-info-external-message'             => __( 'Just letting you know that the add-ons information of %s is being pulled from external server.', 'freemius' ),
+		'addons-info-external-message'             => __( 'Just letting you know that the add-ons information of %s is being pulled from an external server.', 'freemius' ),
 		'no-cc-required'                           => __( 'No credit card required', 'freemius' ),
 		'premium-activated-message'                => __( 'Premium plugin version was successfully activated.', 'freemius' ),
 		'successful-version-upgrade-message'       => __( 'The upgrade of %s was successfully completed.', 'freemius' ),
@@ -256,7 +257,7 @@
 		'license-expired-blocking-message'         => __( 'Your license has expired. You can still continue using the free plugin forever.', 'freemius' ),
 		'trial-started-message'                    => __( 'Your trial has been successfully started.', 'freemius' ),
 		'license-activated-message'                => __( 'Your license was successfully activated.', 'freemius' ),
-		'no-active-license-message'                => __( 'It looks like your site currently don\'t have an active license.', 'freemius' ),
+		'no-active-license-message'                => __( 'It looks like your site currently doesn\'t have an active license.', 'freemius' ),
 		'license-deactivation-message'             => __( 'Your license was successfully deactivated, you are back to the %s plan.', 'freemius' ),
 		'license-deactivation-failed-message'      => __( 'It looks like the license deactivation failed.', 'freemius' ),
 		'license-activation-failed-message'        => __( 'It looks like the license could not be activated.', 'freemius' ),
@@ -281,7 +282,8 @@
 		'plan-did-not-change-email-message'        => __( 'I have upgraded my account but when I try to Sync the License, the plan remains %s.', 'freemius' ),
 		#endregion Admin Notices
 		#region Connectivity Issues
-		'connectivity-test-fails-message'          => __( 'From unknown reason, the API connectivity test fails.', 'freemius' ),
+		'connectivity-test-fails-message'          => __( 'From unknown reason, the API connectivity test failed.', 'freemius' ),
+		'connectivity-test-maybe-temporary'        => __( 'It\'s probably a temporary issue on our end. Just to be sure, with your permission, would it be o.k to run another connectivity test?', 'freemius' ),
 		'curl-missing-message'                     => __( 'We use PHP cURL library for the API calls, which is a very common library and usually installed out of the box. Unfortunately, cURL is not installed on your server.', 'freemius' ),
 		'cloudflare-blocks-connection-message'     => __( 'From unknown reason, CloudFlare, the firewall we use, blocks the connection.', 'freemius' ),
 		'x-requires-access-to-api'                 => _x( '%s requires an access to our API.', 'as pluginX requires an access to our API', 'freemius' ),
@@ -319,12 +321,4 @@
 		'addon-no-license-message'                 => __( '%s is a premium only add-on. You have to purchase a license first before activating the plugin.', 'freemius' ),
 		'addon-trial-cancelled-message'            => __( '%s free trial was successfully cancelled. Since the add-on is premium only it was automatically deactivated. If you like to use it in the future, you\'ll have to purchase a license.', 'freemius' ),
 		#endregion Add-On Licensing
-		#
-		##
-		#CF7Customizer
-		#
-		'cfc_welcome'           => _x( 'Welcome, %s!', 'greeting', 'freemius' ),
-		'cfc_connect_allow'     => __( 'Allow us to connect %s with %s.', 'freemius' ),
-		'cfc_connect_customize' => __( "Customize your contact forms and opt-in to help us track the bugs(if-any), provide support and improve your experience.", 'freemius' ),
-		'cfc_what_is_this'      => __( 'What gets connected?', 'freemius' ),
 	);

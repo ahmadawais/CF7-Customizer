@@ -3,8 +3,8 @@ Contributors: mrahmadawais, WPTie, freemius
 Donate link: http://AhmadAwais.com/contact/
 Tags: contact form 7, contact form 7 customizer, cf7 customizer, contact form 7 customiser, contact form 7 themes, cf7 skin, cf7 theme, cf7 Style, cf7 template, cf7, CF7 addon, CF7 style, form templates, contact form 7, CF7Customizer, CF7 Customisor, contact form 7 css, contact form 7 style, contact form 7 styling, custom form styling, customize, multiple form styling, styling contact form, styling contact form 7, Contact Form 7 Skins, form CSS, cf7 form, skin, Style, template
 Requires at least: 4.0.0
-Tested up to: 4.4
-Stable tag: 1.0.3
+Tested up to: 4.5
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,8 +54,13 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 == Changelog ==
 
-= 1.0.3 =
+= 1.0.4 =
 - WordPress 4.5 compatible.
+- Minor freemius bugs removed and API updated.
+- TF is embedded as per the new rules of W.org repo plugins.
+
+= 1.0.3 =
+- WordPress 4.4.2 compatible.
 - Minor freemius bugs removed and API updated.
 
 = 1.0.2 =

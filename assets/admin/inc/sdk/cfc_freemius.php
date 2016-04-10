@@ -41,6 +41,9 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/sdk/freemius/start.php' ) ) {
 					    'slug' => 'wpcf7',
 				    )
 			    ),
+                'permissions' => array(
+                    'newsletter' => true,
+                ),
 		    ) );
 	    }
 	    return $cfc_fs;
