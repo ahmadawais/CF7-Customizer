@@ -67,9 +67,9 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework/titan-fra
  * @since 1.0.2
  *
  */
-if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' ) ) {
+// if ( file_exists( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' ) ) {
     // require_once( CFC_DIR . '/assets/admin/inc/options/titan-framework-checker.php' );
-}
+// }
 
 
 /**
