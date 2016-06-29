@@ -67,4 +67,4 @@ Customize CF7 with
 - Margin
 
 ##License
-Released under GPL v2.0
+Released under GNU GPL v2.0
