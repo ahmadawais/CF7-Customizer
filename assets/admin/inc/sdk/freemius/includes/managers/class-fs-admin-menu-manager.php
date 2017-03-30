@@ -58,7 +58,7 @@
 		/**
 		 * @since 1.1.3
 		 *
-		 * @var string[]bool
+		 * @var array<string,bool>
 		 */
 		private $_default_submenu_items;
 		/**
@@ -110,7 +110,7 @@
 		}
 
 		private function get_bool_option( &$options, $key, $default = false ) {
-			return isset( $options[ $key ] ) &&is_bool( $options[ $key ] )  ? $options[ $key ] : $default;
+			return isset( $options[ $key ] ) && is_bool( $options[ $key ] ) ? $options[ $key ] : $default;
 		}
 
 		#endregion Helpers
@@ -120,7 +120,7 @@
 		 * @param bool  $is_addon
 		 */
 		function init( $menu, $is_addon = false ) {
-			$this->_menu_slug = $menu['slug'];
+			$this->_menu_slug = ! empty( $menu['slug'] ) ? $menu['slug'] : null;
 
 			$this->_default_submenu_items = array();
 			// @deprecated
@@ -223,16 +223,6 @@
 		 * @author Vova Feldman (@svovaf)
 		 * @since  1.1.3
 		 *
-		 * @return string
-		 */
-//		function slug(){
-//			return $this->_menu_slug;
-//		}
-
-		/**
-		 * @author Vova Feldman (@svovaf)
-		 * @since  1.1.3
-		 *
 		 * @param string $id
 		 * @param bool   $default
 		 *
@@ -262,6 +252,18 @@
 			return ( ( false === strpos( $this->_menu_slug, '.php?' ) ) ?
 				$this->_menu_slug :
 				$this->_plugin_slug ) . ( empty( $page ) ? '' : ( '-' . $page ) );
+		}
+
+		/**
+		 * Check if module has a menu slug set.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.2.1.6
+		 *
+		 * @return bool
+		 */
+		function has_menu_slug() {
+			return ! empty( $this->_menu_slug );
 		}
 
 		/**
@@ -454,6 +456,49 @@
 		}
 
 		/**
+		 * Find plugin's admin dashboard main submenu item.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.2.1.6
+		 *
+		 * @return array|false
+		 */
+		private function find_main_submenu() {
+			global $submenu;
+
+			$top_level_menu_slug = $this->get_top_level_menu_slug();
+
+			if ( ! isset( $submenu[ $top_level_menu_slug ] ) ) {
+				return false;
+			}
+
+			$submenu_slug = $this->get_raw_slug();
+
+			$position      = - 1;
+			$found_submenu = false;
+
+			$hook_name = get_plugin_page_hookname( $submenu_slug, '' );
+
+			foreach ( $submenu[ $top_level_menu_slug ] as $pos => $sub ) {
+				if ( $submenu_slug === $sub[2] ) {
+					$position      = $pos;
+					$found_submenu = $sub;
+				}
+			}
+
+			if ( false === $found_submenu ) {
+				return false;
+			}
+
+			return array(
+				'menu'        => $found_submenu,
+				'parent_slug' => $top_level_menu_slug,
+				'position'    => $position,
+				'hook_name'   => $hook_name
+			);
+		}
+
+		/**
 		 * Remove all sub-menu items.
 		 *
 		 * @author Vova Feldman (@svovaf)
@@ -502,7 +547,6 @@
 		}
 
 		/**
-		 *
 		 * @author Vova Feldman (@svovaf)
 		 * @since  1.1.4
 		 *
@@ -527,6 +571,9 @@
 			} else {
 				global $menu;
 
+				// Remove original CPT menu.
+				unset( $menu[ $found_menu['position'] ] );
+
 				// Create new top-level menu action.
 				$hookname = add_menu_page(
 					$found_menu['menu'][3],
@@ -537,12 +584,51 @@
 					$found_menu['menu'][6],
 					$found_menu['position']
 				);
-
-				// Remove original CPT menu.
-				unset( $menu[ $found_menu['position'] ] );
 			}
 
 			return $hookname;
+		}
+
+		/**
+		 * Adds a counter to the module's top level menu item.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.2.1.5
+		 *
+		 * @param int    $counter
+		 * @param string $class
+		 */
+		function add_counter_to_menu_item( $counter = 1, $class = '' ) {
+			global $menu, $submenu;
+
+			$mask = '%s <span class="update-plugins %s count-%3$s" aria-hidden="true"><span>%3$s<span class="screen-reader-text">%3$s notifications</span></span></span>';
+
+			if ( $this->_is_top_level ) {
+				// Find main menu item.
+				$found_menu = $this->find_top_level_menu();
+
+				if ( false !== $found_menu ) {
+					// Override menu label.
+					$menu[ $found_menu['position'] ][0] = sprintf(
+						$mask,
+						$found_menu['menu'][0],
+						$class,
+						$counter
+					);
+				}
+			} else {
+				$found_submenu = $this->find_main_submenu();
+
+				if ( false !== $found_submenu ) {
+					// Override menu label.
+					$submenu[ $found_submenu['parent_slug'] ][ $found_submenu['position'] ][0] = sprintf(
+						$mask,
+						$found_submenu['menu'][0],
+						$class,
+						$counter
+					);
+				}
+			}
 		}
 
 		#endregion Top level menu Override

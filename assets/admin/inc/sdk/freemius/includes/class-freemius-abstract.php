@@ -5,6 +5,7 @@
 	 * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
 	 * @since       1.0.7
 	 */
+
 	if ( ! defined( 'ABSPATH' ) ) {
 		exit;
 	}
@@ -22,7 +23,9 @@
 	 */
 	abstract class Freemius_Abstract {
 
-		#region Identity ------------------------------------------------------------------
+		#----------------------------------------------------------------------------------
+		#region Identity
+		#----------------------------------------------------------------------------------
 
 		/**
 		 * Check if user registered with Freemius by connecting his account.
@@ -50,9 +53,73 @@
 		 */
 		abstract function is_activation_mode();
 
-		#endregion Identity ------------------------------------------------------------------
+		#endregion
 
-		#region Permissions ------------------------------------------------------------------
+		#----------------------------------------------------------------------------------
+		#region Usage Tracking
+		#----------------------------------------------------------------------------------
+
+		/**
+		 * Returns TRUE if the user opted-in and didn't disconnect (opt-out).
+		 *
+		 * @author Leo Fajardo (@leorw)
+		 * @since 1.2.1.5
+		 *
+		 * @return bool
+		 */
+		abstract function is_tracking_allowed();
+
+		/**
+		 * Returns TRUE if the user never opted-in or manually opted-out.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since 1.2.1.5
+		 *
+		 * @return bool
+		 */
+		function is_tracking_prohibited() {
+			return ! $this->is_registered() || ! $this->is_tracking_allowed();
+		}
+
+		/**
+		 * Opt-out from usage tracking.
+		 *
+		 * Note: This will not delete the account information but will stop all tracking.
+		 *
+		 * Returns:
+		 *  1. FALSE  - If the user never opted-in.
+		 *  2. TRUE   - If successfully opted-out.
+		 *  3. object - API Result on failure.
+		 *
+		 * @author Leo Fajardo (@leorw)
+		 * @since  1.2.1.5
+		 *
+		 * @return bool|object
+		 */
+		abstract function stop_tracking();
+
+		/**
+		 * Opt-in back into usage tracking.
+		 *
+		 * Note: This will only work if the user opted-in previously.
+		 *
+		 * Returns:
+		 *  1. FALSE  - If the user never opted-in.
+		 *  2. TRUE   - If successfully opted-in back to usage tracking.
+		 *  3. object - API result on failure.
+		 *
+		 * @author Leo Fajardo (@leorw)
+		 * @since  1.2.1.5
+		 *
+		 * @return bool|object
+		 */
+		abstract function allow_tracking();
+
+		#endregion
+
+		#----------------------------------------------------------------------------------
+		#region Permissions
+		#----------------------------------------------------------------------------------
 
 		/**
 		 * Check if plugin must be WordPress.org compliant.
@@ -75,7 +142,7 @@
 			return ( $this->is_premium() || ! $this->is_org_repo_compliant() );
 		}
 
-		#endregion Permissions ------------------------------------------------------------------
+		#endregion
 
 		/**
 		 * Check if user in trial or in free plan (not paying).
@@ -109,7 +176,19 @@
 			return ( $this->is_paying() || $this->is_trial() );
 		}
 
-		#region Premium Only ------------------------------------------------------------------
+		/**
+		 * Check if user in a trial or have feature enabled license.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.1.7
+		 *
+		 * @return bool
+		 */
+		abstract function can_use_premium_code();
+
+		#----------------------------------------------------------------------------------
+		#region Premium Only
+		#----------------------------------------------------------------------------------
 
 		/**
 		 * All logic wrapped in methods with "__premium_only()" suffix will be only
@@ -149,7 +228,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name
+		 * @param string $plan  Plan name.
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -165,7 +244,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name
+		 * @param string $plan  Plan name.
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -201,9 +280,25 @@
 			return $this->is_paying__premium_only();
 		}
 
-		#endregion Premium Only ------------------------------------------------------------------
+		/**
+		 * Check if user in a trial or have feature enabled license.
+		 *
+		 * All code wrapped in this statement will be only included in the premium code.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.1.9
+		 *
+		 * @return bool
+		 */
+		function can_use_premium_code__premium_only() {
+			return $this->is_premium() && $this->can_use_premium_code();
+		}
 
-		#region Trial ------------------------------------------------------------------
+		#endregion
+
+		#----------------------------------------------------------------------------------
+		#region Trial
+		#----------------------------------------------------------------------------------
 
 		/**
 		 * Check if the user in a trial.
@@ -223,9 +318,11 @@
 		 */
 		abstract function is_trial_utilized();
 
-		#endregion Trial ------------------------------------------------------------------
+		#endregion
 
-		#region Plans ------------------------------------------------------------------
+		#----------------------------------------------------------------------------------
+		#region Plans
+		#----------------------------------------------------------------------------------
 
 		/**
 		 * Check if plugin using the free plan.
@@ -239,7 +336,7 @@
 		/**
 		 * @since  1.0.2
 		 *
-		 * @param string $plan  Plan name
+		 * @param string $plan  Plan name.
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -251,7 +348,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name
+		 * @param string $plan  Plan name.
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -263,7 +360,7 @@
 		 *
 		 * @since  1.0.9
 		 *
-		 * @param string $plan  Plan name
+		 * @param string $plan  Plan name.
 		 * @param bool   $exact If true, looks for exact plan. If false, also check "higher" plans.
 		 *
 		 * @return bool
@@ -295,7 +392,57 @@
 		 */
 		abstract function has_free_plan();
 
-		#endregion Plans ------------------------------------------------------------------
+		/**
+		 * Check if plugin is premium only (no free plans).
+		 *
+		 * NOTE: is__premium_only() is very different method, don't get confused.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.1.9
+		 *
+		 * @return bool
+		 */
+		abstract function is_only_premium();
+
+		/**
+		 * Check if module has a premium code version.
+		 *
+		 * Serviceware module might be freemium without any
+		 * premium code version, where the paid features
+		 * are all part of the service.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.2.1.6
+		 *
+		 * @return bool
+		 */
+		abstract function has_premium_version();
+
+		/**
+		 * Check if module has any release on Freemius,
+		 * or all plugin's code is on WordPress.org (Serviceware).
+		 *
+		 * @return bool
+		 */
+		function has_release_on_freemius() {
+			return ! $this->is_org_repo_compliant() ||
+			       $this->has_premium_version();
+		}
+
+		/**
+		 * Checks if it's a freemium plugin.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.1.9
+		 *
+		 * @return bool
+		 */
+		function is_freemium() {
+			return $this->has_paid_plan() &&
+			       $this->has_free_plan();
+		}
+
+		#endregion
 
 		/**
 		 * Check if running payments in sandbox mode.
@@ -330,7 +477,7 @@
 		 * @author Vova Feldman (@svovaf)
 		 * @since  1.0.2
 		 *
-		 * @param string $period Billing cycle
+		 * @param string $period Billing cycle.
 		 *
 		 * @return string
 		 */
@@ -358,7 +505,9 @@
 		 */
 		abstract function is_plugin_new_install();
 
-		#region Marketing ------------------------------------------------------------------
+		#----------------------------------------------------------------------------------
+		#region Marketing
+		#----------------------------------------------------------------------------------
 
 		/**
 		 * Check if current user purchased any other plugins before.
@@ -400,5 +549,5 @@
 		 */
 		abstract function is_business();
 
-		#endregion ------------------------------------------------------------------
+		#endregion
 	}

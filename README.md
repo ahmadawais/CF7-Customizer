@@ -1,11 +1,5 @@
 # WordPress Form Customizer | CF7 Customizer
 
-[![DEV](https://img.shields.io/badge/Dev-%E2%86%92-lightgrey.svg?style=flat-square)](https://github.com/WPTie/CF7Customizer/releases)
-[![Build Status](https://travis-ci.org/WPTie/CF7Customizer.svg?style=flat-square?branch=master)](https://travis-ci.org/WPTie/CF7Customizer)
-[![Dependency Status](https://david-dm.org/WPTie/CF7Customizer.svg?style=flat-square)](https://david-dm.org/WPTie/CF7Customizer)
-[![devDependency Status](https://david-dm.org/WPTie/CF7Customizer/dev-status.svg?style=flat-square)](https://david-dm.org/WPTie/CF7Customizer#info=devDependencies)
-
-
 [![WP](https://img.shields.io/badge/WordPress-%E2%86%92-lightgrey.svg?style=flat-square)](https://wordpress.org/plugins/cf7-customizer/)
 [![WP Plugin Version](https://img.shields.io/wordpress/plugin/v/cf7-customizer.svg?style=flat-square&label=version)](https://wordpress.org/plugins/cf7-customizer/)
 [![WP Downloads](https://img.shields.io/wordpress/plugin/dt/cf7-customizer.svg?style=flat-square)](https://wordpress.org/plugins/cf7-customizer/)

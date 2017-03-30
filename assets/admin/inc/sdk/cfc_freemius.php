@@ -21,7 +21,6 @@ if ( file_exists( CFC_DIR . '/assets/admin/inc/sdk/freemius/start.php' ) ) {
 	    global $cfc_fs;
 	    if ( ! isset( $cfc_fs ) ) {
 	        // Include Freemius SDK.
-		    // require_once( CFC_DIR . '/assets/admin/inc/sdk/freemius-new/start.php' );
 		    require_once( CFC_DIR . '/assets/admin/inc/sdk/freemius/start.php' );
 		    $cfc_fs = fs_dynamic_init( array(
 				'id'              => '91',

@@ -12,6 +12,9 @@
 
 	define( 'WP_FS__SECURITY_PARAMS_PREFIX', 's_' );
 
+	/**
+	 * Class FS_Security
+	 */
 	class FS_Security {
 		/**
 		 * @var FS_Security
@@ -24,10 +27,17 @@
 		 */
 		private static $_logger;
 
+		/**
+		 * @return \FS_Security
+		 */
 		public static function instance() {
 			if ( ! isset( self::$_instance ) ) {
 				self::$_instance = new FS_Security();
-				self::$_logger   = FS_Logger::get_logger( WP_FS__SLUG, WP_FS__DEBUG_SDK, WP_FS__ECHO_DEBUG_SDK );
+				self::$_logger   = FS_Logger::get_logger(
+					WP_FS__SLUG,
+					WP_FS__DEBUG_SDK,
+					WP_FS__ECHO_DEBUG_SDK
+				);
 			}
 
 			return self::$_instance;
@@ -36,6 +46,13 @@
 		private function __construct() {
 		}
 
+		/**
+		 * @param \FS_Scope_Entity $entity
+		 * @param int              $timestamp
+		 * @param string           $action
+		 *
+		 * @return string
+		 */
 		function get_secure_token( FS_Scope_Entity $entity, $timestamp, $action = '' ) {
 			return md5(
 				$timestamp .
@@ -46,6 +63,13 @@
 			);
 		}
 
+		/**
+		 * @param \FS_Scope_Entity $entity
+		 * @param int|bool         $timestamp
+		 * @param string           $action
+		 *
+		 * @return array
+		 */
 		function get_context_params( FS_Scope_Entity $entity, $timestamp = false, $action = '' ) {
 			if ( false === $timestamp ) {
 				$timestamp = time();

@@ -28,10 +28,10 @@
 		 */
 		private $_logger;
 		/**
-		 * @var bool
-		 * @since 1.1.7
+		 * @var object
+		 * @since 1.1.8.1
 		 */
-		private $_update_checked = false;
+		private $_update_details;
 
 		function __construct( Freemius $freemius ) {
 			$this->_fs = $freemius;
@@ -57,7 +57,7 @@
 				'pre_set_site_transient_update_plugins_filter'
 			) );
 
-			if ( ! $this->_fs->has_active_license() ) {
+			if ( ! $this->_fs->has_active_valid_license() ) {
 				/**
 				 * If user has the premium plugin's code but do NOT have an active license,
 				 * encourage him to upgrade by showing that there's a new release, but instead
@@ -83,6 +83,10 @@
 					'http_request_host_is_external_filter'
 				), 10, 3 );
 			}
+
+			if ( $this->_fs->is_premium() && $this->is_correct_folder_name() ) {
+				add_filter( 'upgrader_post_install', array( &$this, '_maybe_update_folder_name' ), 10, 3 );
+			}
 		}
 
 		/**
@@ -100,6 +104,9 @@
 		 *
 		 * @author Vova Feldman (@svovaf)
 		 * @since  1.1.6
+		 *
+		 * @param string $file
+		 * @param array  $plugin_data
 		 */
 		function edit_and_echo_plugin_update_row( $file, $plugin_data ) {
 			$plugin_update_row = ob_get_clean();
@@ -108,7 +115,7 @@
 			if ( ! isset( $current->response[ $file ] ) ) {
 				echo $plugin_update_row;
 
-				return false;
+				return;
 			}
 
 			$r = $current->response[ $file ];
@@ -159,43 +166,49 @@
 		 *
 		 * @uses   FS_Api
 		 *
-		 * @param stdClass $transient_data Update array build by WordPress.
+		 * @param object $transient_data Update array build by WordPress.
 		 *
-		 * @return array Modified update array with custom plugin data.
+		 * @return object Modified update array with custom plugin data.
 		 */
 		function pre_set_site_transient_update_plugins_filter( $transient_data ) {
 			$this->_logger->entrance();
 
 			if ( empty( $transient_data ) ||
-			     defined( 'WP_FS__UNINSTALL_MODE' ) ||
-			     /**
-			      * From some reason 'pre_set_site_transient_update_plugins' filter
-			      * is called four times in a row.
-			      *
-			      * @since 1.1.7.3
-			      */
-			     $this->_update_checked
+			     defined( 'WP_FS__UNINSTALL_MODE' )
 			) {
 				return $transient_data;
 			}
 
-			// Get plugin's newest update.
-			$new_version = $this->_fs->get_update(false, false);
+			if ( ! isset( $this->_update_details ) ) {
+				// Get plugin's newest update.
+				$new_version = $this->_fs->get_update( false, false );
 
-			$this->_update_checked = true;
+				$this->_update_details = false;
 
-			if ( is_object( $new_version ) ) {
-				$this->_logger->log( 'Found newer plugin version ' . $new_version->version );
+				if ( is_object( $new_version ) ) {
+					$this->_logger->log( 'Found newer plugin version ' . $new_version->version );
 
-				$plugin_details              = new stdClass();
-				$plugin_details->slug        = $this->_fs->get_slug();
-				$plugin_details->new_version = $new_version->version;
-				$plugin_details->url         = WP_FS__ADDRESS;
-				$plugin_details->package     = $new_version->url;
-				$plugin_details->plugin      = $this->_fs->get_plugin_basename();
+					$plugin_details              = new stdClass();
+					$plugin_details->slug        = $this->_fs->get_slug();
+					$plugin_details->new_version = $new_version->version;
+					$plugin_details->url         = WP_FS__ADDRESS;
+					$plugin_details->package     = $new_version->url;
+					$plugin_details->plugin      = $this->_fs->get_plugin_basename();
 
+					/**
+					 * Cache plugin details locally since set_site_transient( 'update_plugins' )
+					 * called multiple times and the non wp.org plugins are filtered after the
+					 * call to .org.
+					 *
+					 * @since 1.1.8.1
+					 */
+					$this->_update_details = $plugin_details;
+				}
+			}
+
+			if ( is_object( $this->_update_details ) ) {
 				// Add plugin to transient data.
-				$transient_data->response[ $this->_fs->get_plugin_basename() ] = $plugin_details;
+				$transient_data->response[ $this->_fs->get_plugin_basename() ] = $this->_update_details;
 			}
 
 			return $transient_data;
@@ -307,22 +320,96 @@ if ( !isset($info->error) ) {
 			// Get plugin's newest update.
 			$new_version = $this->_fs->_fetch_latest_version( $is_addon ? $addon->id : false );
 
-			if ( $is_addon ) {
-				$data->name    = $addon->title . ' ' . __fs( 'addon', $this->_fs->get_slug() );
-				$data->slug    = $addon->slug;
-				$data->url     = WP_FS__ADDRESS;
-				$data->package = $new_version->url;
-			}
+			if ( ! is_object( $new_version ) || empty( $new_version->version ) ) {
+				$data->version = $this->_fs->get_plugin_version();
+			} else {
+				if ( $is_addon ) {
+					$data->name    = $addon->title . ' ' . __fs( 'addon', $this->_fs->get_slug() );
+					$data->slug    = $addon->slug;
+					$data->url     = WP_FS__ADDRESS;
+					$data->package = $new_version->url;
+				}
 
-			if ( ! $plugin_in_repo ) {
-				$data->last_updated = ! is_null( $new_version->updated ) ? $new_version->updated : $new_version->created;
-				$data->requires     = $new_version->requires_platform_version;
-				$data->tested       = $new_version->tested_up_to_version;
-			}
+				if ( ! $plugin_in_repo ) {
+					$data->last_updated = ! is_null( $new_version->updated ) ? $new_version->updated : $new_version->created;
+					$data->requires     = $new_version->requires_platform_version;
+					$data->tested       = $new_version->tested_up_to_version;
+				}
 
-			$data->version       = $new_version->version;
-			$data->download_link = $new_version->url;
+				$data->version       = $new_version->version;
+				$data->download_link = $new_version->url;
+			}
 
 			return $data;
+		}
+
+		/**
+		 * Checks if a given basename has a matching folder name
+		 * with the current context plugin.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.2.1.6
+		 *
+		 * @param string $basename Current plugin's basename.
+		 *
+		 * @return bool
+		 */
+		private function is_correct_folder_name( $basename = '' ) {
+			if ( empty( $basename ) ) {
+				$basename = $this->_fs->get_plugin_basename();
+			}
+
+			return ( $this->_fs->get_slug() . ( $this->_fs->is_premium() ? '-premium' : '' ) != trim( dirname( $basename ), '/\\' ) );
+		}
+
+		/**
+		 * This is a special after upgrade handler for migrating modules
+		 * that didn't use the '-premium' suffix folder structure before
+		 * the migration.
+		 *
+		 * @author Vova Feldman (@svovaf)
+		 * @since  1.2.1.6
+		 *
+		 * @param bool  $response   Install response.
+		 * @param array $hook_extra Extra arguments passed to hooked filters.
+		 * @param array $result     Installation result data.
+		 *
+		 * @return bool
+		 */
+		function _maybe_update_folder_name( $response, $hook_extra, $result ) {
+			$basename = $this->_fs->get_plugin_basename();
+
+			if ( true !== $response ||
+			     empty( $hook_extra ) ||
+			     empty( $hook_extra['plugin'] ) ||
+			     $basename !== $hook_extra['plugin']
+			) {
+				return $response;
+			}
+
+			$active_plugins_basenames = get_option( 'active_plugins' );
+
+			for ( $i = 0, $len = count( $active_plugins_basenames ); $i < $len; $i ++ ) {
+				if ( $basename === $active_plugins_basenames[ $i ] ) {
+					// Get filename including extension.
+					$filename = basename( $basename );
+
+					$new_basename = plugin_basename(
+						trailingslashit( $this->_fs->get_slug() . ( $this->_fs->is_premium() ? '-premium' : '' ) ) .
+						$filename
+					);
+
+					// Verify that the expected correct path exists.
+					if ( file_exists( fs_normalize_path( WP_PLUGIN_DIR . '/' . $new_basename ) ) ) {
+						// Override active plugin name.
+						$active_plugins_basenames[ $i ] = $new_basename;
+						update_option( 'active_plugins', $active_plugins_basenames );
+					}
+
+					break;
+				}
+			}
+
+			return $response;
 		}
 	}
