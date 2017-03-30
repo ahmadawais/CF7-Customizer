@@ -146,7 +146,7 @@ $cfc_version = CFC_VERSION;
 													    font-family: OpenSans;
 													">
 													Signup to get more CF7 Addons </label>
-						<input type="email" value="" placeholder="<?php echo get_option( 'admin_email' ,  'email@address.com' ) ?>" name="EMAIL" class="required email" id="mce-EMAIL" style="
+						<input type="email" value="<?php echo get_option( 'admin_email' , 'email@address.com' ) ?>" name="EMAIL" class="required email" id="mce-EMAIL" style="
 													    display: table-cell;
 													    width: 100%;
 													    margin: 1rem 0;

@@ -72,16 +72,21 @@ function cfc_tgm_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'CFC',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'cfc-install-plugins', // Menu slug.
 		'parent_slug'  => 'plugins.php',            // Parent menu slug.
-		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'capability'   => 'manage_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
 		'has_notices'  => true,                    // Show admin notices or not.
 		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
 		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.
+		'message'      => '<div id="setting-error-tgmpa" class="notice-warning settings-error notice is-dismissible">
+    <p><strong><span style="display: block; margin: 0.5em 0.5em 0 0; clear: both;">After installing and activating Contact Form plugin below go to the link below:</span>
+<span style="display: block; margin: 0.5em 0.5em 0 0; clear: both;"><a href="/wp-admin/admin.php?page=cfc_welcome_page">Get Started</a> </span>
+</strong></button>
+</div>
+',                      // Message to output right before the plugins table.
 
 		/*
 		'strings'      => array(
