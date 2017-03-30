@@ -47,7 +47,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 - ✔️ UPDATE: Git Repo URL update.
 - ✔️ UPDATE: Readme update.
 
-- ⚡️️ NEW: Change Text color for Contact Form 7 Labels. [GIF](https://i.imgur.com/yy8224s.gif)
+- ⚡️️ NEW: Change Text color for Contact Form 7 Labels. [GIF](https://i.imgur.com/yy8224s.gif).
 - ⚡️️ NEW: Better Plugin Workflow with a notice to Get Started.
 
 - 🐞 FIX: Welcome page sub input field.

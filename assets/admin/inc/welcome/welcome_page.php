@@ -50,6 +50,8 @@ $cfc_version = CFC_VERSION;
 
 		 	</div>
 
+
+
  	 <div class="feature-section one-col">
 
 		<h2>What's Inside?</h2>
@@ -70,6 +72,21 @@ $cfc_version = CFC_VERSION;
 
 	</div>
 
+	<div class="feature-section one-col ">
+		<div class="cfc_subscribe">
+			<div class="cfc_subscribe__first">
+				<img src="<?php echo CFC_URL . '/assets/admin/inc/welcome/assets/img/logo_transparent.png' ?>" style="width: 10rem;">
+			</div>
+			<div class="cfc_subscribe__second">
+				<div>
+					<p>Now if you GENUINELY like this plugin then it would be a HUGE help if you left a 5 star rating & review. It might seem insignificant, but it helps more than you might think.</p>
+					<a style="background: #fff;padding: 0.6rem;text-decoration: none;" href="https://wordpress.org/support/plugin/cf7-customizer/reviews/?filter=5#new-post" target="_blank">→ Rate WordPress Form Customizer</a>
+				</div>
+			</div>
+			<!-- /.cfc_subscribe__second -->
+		</div>
+		<!-- /.cfc_subscribe -->
+	 </div>
 	<div class="changelog feature-section two-col">
 		<div class="col">
 			<img src="<?php echo CFC_URL . '/assets/admin/inc/welcome/assets/img/1.png'; ?>" />
@@ -124,14 +141,13 @@ $cfc_version = CFC_VERSION;
 
 			<div class="cfc_subscribe">
 
-				<dic class="cfc_subscribe__first">
+				<div class="cfc_subscribe__first">
 
 					<img src="<?php echo CFC_URL . '/assets/admin/inc/welcome/assets/img/logo_transparent.png' ?>" style="width: 10rem;">
 
-				</dic>
+				</div>
 
 				<div class="cfc_subscribe__second">
-
 					<!-- Begin MailChimp Signup Form -->
 					<div id="mc_embed_signup">
 					<form action="//worwox.us2.list-manage.com/subscribe/post?u=c167b1ee0e48862e6a9ab2b6d&amp;id=faa4d2f95a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -139,13 +155,15 @@ $cfc_version = CFC_VERSION;
 
 					<div class="mc-field-group">
 						<label for="mce-EMAIL" style="
-													    display: block;
+													    display: table;
 													    width: 100%;
 													    text-transform: uppercase;
 													    font-size: 1.4rem;
 													    font-family: OpenSans;
+													    margin: 3rem 0 0;
 													">
 													Signup to get more CF7 Addons </label>
+						<p>I hate spam more than you. Pinky promise. No SPAM! Hardly one email per month.</p>
 						<input type="email" value="<?php echo get_option( 'admin_email' , 'email@address.com' ) ?>" name="EMAIL" class="required email" id="mce-EMAIL" style="
 													    display: table-cell;
 													    width: 100%;
