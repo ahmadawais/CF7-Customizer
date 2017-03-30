@@ -6,7 +6,7 @@
 [![WP Rating](https://img.shields.io/wordpress/plugin/r/cf7-customizer.svg?style=flat-square)](https://wordpress.org/support/view/plugin-reviews/cf7-customizer?filter=5)
 [![License](https://img.shields.io/badge/license-GPL%20v2.0-lightgrey.svg?style=flat-square)](https://github.com/ahmadawais/CF7-Customizer/blob/master/license.txt)
 
-Customize, Style, Theme, your WordPress Contact Forms. An intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end. 
+👌 Customize, style and theme your WordPress Contact Forms. An intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 
 ![CF7 Customizer](https://i.imgur.com/qLPelOl.png)
 
