@@ -4,9 +4,9 @@
 [![WP Plugin Version](https://img.shields.io/wordpress/plugin/v/cf7-customizer.svg?style=flat-square&label=version)](https://wordpress.org/plugins/cf7-customizer/)
 [![WP Downloads](https://img.shields.io/wordpress/plugin/dt/cf7-customizer.svg?style=flat-square)](https://wordpress.org/plugins/cf7-customizer/)
 [![WP Rating](https://img.shields.io/wordpress/plugin/r/cf7-customizer.svg?style=flat-square)](https://wordpress.org/support/view/plugin-reviews/cf7-customizer?filter=5)
-[![License](https://img.shields.io/badge/license-GPL%20v2.0-lightgrey.svg?style=flat-square)](https://github.com/WPTie/CF7Customizer/blob/master/license.txt)
+[![License](https://img.shields.io/badge/license-GPL%20v2.0-lightgrey.svg?style=flat-square)](https://github.com/ahmadawais/CF7-Customizer/blob/master/license.txt)
 
-An intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
+Customize, Style, Theme, your WordPress Contact Forms. An intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end. 
 
 ![CF7 Customizer](https://i.imgur.com/qLPelOl.png)
 
@@ -28,37 +28,79 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 - Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila
 
 ### Changelog
-### Version 1.0.4
-- WordPress 4.5 compatible.
-- Minor freemius bugs removed and API updated.
-- TF is embedded as per the new rules of W.org repo plugins.
 
-### Version 1.0.3
-- WordPress 4.5 compatible.
-- Minor freemius bugs removed and API updated.
+💯 Reading this change log is fun. 
 
-### Version 1.0.2
-- WordPress 4.4 compatible.
-- Minor freemius bugs removed.
-- TitanFramework is now called as a plugin instead of being embedded.
+=== Version 1.1.0 ===
 
-### Version 1.0.1
-- WordPress 4.4 compatible
-- New Section: Custom CSS
-- Border-radius added to form, inputs and button
-- TGMPA updated
-- Titan Framework updated
-- Freemius support app added
+🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible. 
 
-### Version Version 1.0.0
-First completed version of CF7 Customizer
-Customize CF7 with
-- Colors
-- Background Images
-- Font Sizes
-- Borders
-- Padding
-- Margin
+- UPDATE: Form styler is WordPress 4.7 compatible. Test pass!
+- UPDATE: Form styler is WordPress 4.7.1 compatible. Test pass!
+- UPDATE: Form styler is WordPress 4.7.2 compatible. Test pass!
+- UPDATE: Form styler is WordPress 4.7.3 compatible. Test pass!
+- UPDATE: TitanFramework for Customizer options.
+- UPDATE: TGMPA for Contact Form 7 plugin.
+- UPDATE: Freemius SDK for Plugin Form Insights.
+- UPDATE: Git Repo URL update.
+- UPDATE: Readme update.
 
-##License
-Released under GNU GPL v2.0
+- NEW: Change Text color for Contact Form 7 Labels. [GIF](https://i.imgur.com/yy8224s.gif)
+- NEW: Better Plugin Workflow with a notice to Get Started.
+
+=== Version 1.0.4 ===
+
+🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
+
+- UPDATE: WordPress form customizer is now WordPress 4.5 compatible.
+- UPDATE: TitanFramework is embedded as per the new rules of WP.org repo plugins.
+
+- FIX: Freemius SDK update address minor bugs.
+
+=== Version 1.0.3 ===
+
+🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
+
+- UPDATE: Contact Form Customizer is now WordPress 4.5 compatible.
+
+- FIX: Remove Form Subscription insights via Freemius bug.
+
+- NEW: Update Freemius API for Customizer Plugin.
+
+=== Version 1.0.2 ===
+
+🎯 TL;DR Minor bug fixes. 
+
+- UPDATE: Better Form Customizer WordPress 4.4 compatible.
+
+- FIX: Contact Form 7 Customizer plugin minor Freemius bugs removed.
+
+- NEW: Form Styles & Themes are added via embedded TitanFramework.
+
+=== Version 1.0.1 ===
+
+🎯 TL;DR WP 4.4 compatible with dependency updates. 
+
+- UPDATE: Form Customizer is not WordPress 4.4 compatible.
+- UPDATE: Titan Framework update.
+- UPDATE: TGMPA plugin update.
+
+- NEW: Add Custom CSS to WordPress Forms.
+- NEW: Add Border-radius to contact forms .
+- NEW: Create Border-radius for inputs.
+- NEW: Customize Border-radius for buttons.
+- NEW: Freemius Support added to form customizer.
+
+=== Version Version 1.0.0 ===
+
+🎯 TL;DR First completed version of WordPress Forms Themes Customizer | CF7 Customizer.
+
+- NEW: Customize Contact form Colors.
+- NEW: Theme Contact form Background Images.
+- NEW: Customize Contact form Font Sizes.
+- NEW: Add Contact form Borders.
+- NEW: Add Contact form Padding.
+- NEW: Add Contact form Margin.
+
+## License
+GNU GPL v2.0. ⓒ [Ahmad Awais](https://AhmadAwais.com/)

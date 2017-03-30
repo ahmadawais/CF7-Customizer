@@ -21,8 +21,8 @@ if ( $cfc_state ) {
 	    'type'        => 'color',
 	    'name'        => 'Text Color',
 	    'default'     => '#000000',
-	    'livepreview' => '$("#cfc, #cfc .wpcf7-quiz-label, #cfc p").css("color", value)',
-	    'css'         => '#cfc, #cfc .wpcf7-quiz-label, #cfc p { color: value; }'
+	    'livepreview' => '$("#cfc, #cfc .wpcf7-quiz-label, #cfc p, #cfc label").css("color", value)',
+	    'css'         => '#cfc, #cfc .wpcf7-quiz-label, #cfc p, #cfc label { color: value; }'
 
 	) );
 
