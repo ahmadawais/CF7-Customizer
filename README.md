@@ -1,4 +1,4 @@
-#CF7 Customizer
+# WordPress Form Customizer | CF7 Customizer
 
 [![DEV](https://img.shields.io/badge/Dev-%E2%86%92-lightgrey.svg?style=flat-square)](https://github.com/WPTie/CF7Customizer/releases)
 [![Build Status](https://travis-ci.org/WPTie/CF7Customizer.svg?style=flat-square?branch=master)](https://travis-ci.org/WPTie/CF7Customizer)
@@ -12,15 +12,15 @@
 [![WP Rating](https://img.shields.io/wordpress/plugin/r/cf7-customizer.svg?style=flat-square)](https://wordpress.org/support/view/plugin-reviews/cf7-customizer?filter=5)
 [![License](https://img.shields.io/badge/license-GPL%20v2.0-lightgrey.svg?style=flat-square)](https://github.com/WPTie/CF7Customizer/blob/master/license.txt)
 
-It is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
+An intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 
-![CF7 Customizer](http://wptie.com/wp-content/uploads/2014/10/CFC.png)
+![CF7 Customizer](https://i.imgur.com/qLPelOl.png)
 
 
 ## Watch the video?
 Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the video or sign up for pre-release beta testers list.
 
-###Download
+### Download
 - Download from [WordPress.org](https://wordpress.org/plugins/cf7-customizer/)
 - Landing Page for [CF7 Customizer](http://cf7customizer.wptie.com/)
 - Blog Post about  [CF7 Customizer](https://ahmadawais.com/cf7-customizer-form-styling-via-wp-live-customizer/)

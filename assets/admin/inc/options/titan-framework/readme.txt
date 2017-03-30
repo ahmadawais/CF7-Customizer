@@ -3,16 +3,16 @@ Contributors: bfintal
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D2MK28E7BDLHC
 Tags: framework, options, admin, admin panel, meta box, theme customizer, option framework, library, sdk, edd, settings, api, theme creator, theme framework
 Requires at least: 4.1
-Tested up to: 4.5
-Stable tag: 1.9.3
+Tested up to: 4.6.1
+Stable tag: 1.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The most easy to use WordPress option framework.
+Create Settings for Your WordPress Themes & Plugins with Just a Few Lines of Code.
 
 == Description ==
 
-Titan Framework allows theme and plugin developers to create a admin pages, options, meta boxes, and theme customizer options with just a few simple lines of code.
+Titan Framework allows theme and plugin developers to create admin pages, options, meta boxes, and theme customizer options with just a few simple lines of code.
 
 This means faster theme & plugin creation for everyone.
 
@@ -66,13 +66,17 @@ The generated theme comes with sample pre-created options in the admin and theme
 * EDD License (Easy Digital Downloads license)
 * Editor (WYSIWYG)
 * Enable
+* File upload
 * Font Style (Web safe fonts and Google WebFonts)
+* Gallery
+* Group
 * Heading
 * Iframe
 * Media uploader
 * Multicheck
 * Multicheck categories and taxonomies
 * Multicheck pages and posts
+* Multicheck post types
 * Note
 * Number
 * Radio buttons
@@ -83,6 +87,7 @@ The generated theme comes with sample pre-created options in the admin and theme
 * Select Google WebFont
 * Select categories and taxonomies
 * Select pages and posts
+* Select post types
 * Sortable
 * Text
 * Textarea
@@ -139,6 +144,28 @@ and to everyone else in the GitHub repo!
 4. Sample code on how to create admin pages and options
 
 == Changelog ==
+
+= 1.11 =
+* New: Added custom font in Theme Customizer
+* New: Added File Upload option
+* New: Added select_all in multicheck option
+* New: Added em in font size
+* New: Sample Content Extension support
+* Enhanced: Tabs color is changed, and the gap between tabs and panel is removed
+* Enhanced: Allow svg file in upload option
+* Fixed: Gallery option
+
+= 1.10 =
+* New: Added new options multicheck-post-types and select-post-types
+* New: Added Group option
+* New: Added include_fonts in Theme Customizer.
+* Enhanced: Generated inline CSS now has an ID attribute.
+* Enhanced: Easy Digital Downloads product checking revised.
+* Enhanced: Timepicker styles.
+* Enhanced: EDD option.
+* Change: Footer Text should be returned not echoed.
+* Change: class_exists to function_exists of googlefonts function.
+* Fixed: Input tag.
 
 = 1.9.3 =
 * New: Transport parameter for overriding the Customizer transport parameter

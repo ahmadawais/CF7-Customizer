@@ -17,19 +17,28 @@ class TitanFramework {
 
 	/**
 	 * All TitanFramework instances
+	 *
 	 * @var array
 	 */
 	private static $instances = array();
 
+  /**
+   * The current blog id
+   * @var string
+   */
+  private $blogId;
+
 	/**
 	 * The current option namespace.
 	 * Options will be prefixed with this in the database
+	 *
 	 * @var string
 	 */
 	public $optionNamespace;
 
 	/**
 	 * All main containers (admin pages, meta boxes, customizer section)
+	 *
 	 * @var array of TitanFrameworkAdminPage, TitanFrameworkMetaBox, & TitanFrameworkCustomizer
 	 */
 	private $mainContainers = array();
@@ -37,25 +46,30 @@ class TitanFramework {
 	/**
 	 * All Google Font options used. This is for enqueuing Google Fonts for the frontend
 	 * TODO Move this to the TitanFrameworkOptionSelectGooglefont class and let it enqueue from there
+	 *
 	 * @var array TitanFrameworkOptionSelectGooglefont
 	 */
 	private $googleFontsOptions = array();
 
 	/**
 	 * We store option ids which should not be created here
+	 *
 	 * @var array
+	 *
 	 * @see removeOption()
 	 */
 	private $optionsToRemove = array();
 
 	/**
 	 * Holds the values of all admin (page & tab) options. We need this since
+	 *
 	 * @var array of TitanFrameworkOption
 	 */
 	private $adminOptions;
 
 	/**
 	 * The CSS class instance used
+	 *
 	 * @var TitanFrameworkCSS
 	 */
 	public $cssInstance;
@@ -63,18 +77,21 @@ class TitanFramework {
 	/**
 	 * We store the options (with IDs) here, used for ensuring our serialized option
 	 * value doesn't get cluttered with unused options
+	 *
 	 * @var array
 	 */
 	public $optionsUsed = array();
 
 	/**
 	 * The current list of settings
+	 *
 	 * @var array
 	 */
 	public $settings = array();
 
 	/**
 	 * Default settings
+	 *
 	 * @var array
 	 */
 	private $defaultSettings = array(
@@ -131,6 +148,9 @@ class TitanFramework {
 	 * @param string $optionNamespace The namespace to get options from.
 	 */
 	function __construct( $optionNamespace ) {
+
+    // Set current blog
+    $this->blogId = get_current_blog_id();
 
 		// Clean namespace.
 		$optionNamespace = str_replace( ' ', '-', trim( strtolower( $optionNamespace ) ) );
@@ -216,7 +236,9 @@ class TitanFramework {
 	 * @return array All admin options currently in the instance
 	 */
 	protected function getInternalAdminOptions() {
-		if ( empty( $this->adminOptions ) ) {
+
+    // Reload options if blog has been switched
+		if ( empty( $this->adminOptions ) || get_current_blog_id() !== $this->blogId ) {
 			$this->adminOptions = array();
 		}
 
@@ -324,6 +346,22 @@ class TitanFramework {
 	public function createAdminPanel( $settings ) {
 		// _deprecated_function( __FUNCTION__, '1.9', 'createAdminPage' );
 		return $this->createAdminPage( $settings );
+	}
+
+
+	/**
+	 *	Create a sample content only.
+ 	 * Use createSampleContent() with 'type' => 'sample-panel' or createSamplePanel() instead.
+	 *
+	 * @since 1.11
+   *
+ 	 * @param array $settings The arguments for creating the sample conent page.
+ 	 *
+	 *	@return TitanFrameworkAdminPage The created sample coennt page.
+	 */
+	public function createSampleContentPage( $settings ) {
+		$settings['type'] = 'sample-panel';
+		return $this->createContainer( $settings );
 	}
 
 
