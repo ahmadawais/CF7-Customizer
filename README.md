@@ -31,7 +31,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 💯 Reading this change log is fun. 
 
-=== Version 1.1.0 ===
+### Version 1.1.0
 
 🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible. 
 
@@ -48,7 +48,9 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 - NEW: Change Text color for Contact Form 7 Labels. [GIF](https://i.imgur.com/yy8224s.gif)
 - NEW: Better Plugin Workflow with a notice to Get Started.
 
-=== Version 1.0.4 ===
+- FIX: Welcome page sub input field.
+
+### Version 1.0.4
 
 🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
 
@@ -57,7 +59,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 - FIX: Freemius SDK update address minor bugs.
 
-=== Version 1.0.3 ===
+### Version 1.0.3
 
 🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
 
@@ -67,7 +69,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 - NEW: Update Freemius API for Customizer Plugin.
 
-=== Version 1.0.2 ===
+### Version 1.0.2
 
 🎯 TL;DR Minor bug fixes. 
 
@@ -77,7 +79,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 - NEW: Form Styles & Themes are added via embedded TitanFramework.
 
-=== Version 1.0.1 ===
+### Version 1.0.1
 
 🎯 TL;DR WP 4.4 compatible with dependency updates. 
 
@@ -91,7 +93,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 - NEW: Customize Border-radius for buttons.
 - NEW: Freemius Support added to form customizer.
 
-=== Version Version 1.0.0 ===
+### Version Version 1.0.0
 
 🎯 TL;DR First completed version of WordPress Forms Themes Customizer | CF7 Customizer.
 

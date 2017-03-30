@@ -73,6 +73,8 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 - NEW: Change Text color for Contact Form 7 Labels. [GIF](https://i.imgur.com/yy8224s.gif)
 - NEW: Better Plugin Workflow with a notice to Get Started.
 
+- FIX: Welcome page sub input field.
+
 === Version 1.0.4 ===
 
 🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
