@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: CF7 Customizer
- * Plugin URI: http://WPTie.com/
+ * Plugin URI: https://WPCouple.com/
  * Description: Customize Contact Form 7 forms with live theme customizer. After installing this plugin, go to Contact > <a href="/wp-admin/admin.php?page=cfc_welcome_page">CF7 Customizer Settings</a>!
- * Author: mrahmadawais, maedahbatool, WPTie
- * Author URI: http://WPTie.com/
+ * Author: WPCouple(Ahmad Awais & Maedah Batool)
+ * Author URI: https://AhmadAwais.com/
  * Version: 1.1.0
  * License: GPL v2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
