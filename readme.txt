@@ -1,9 +1,9 @@
 === WordPress Form Customizer | CF7 Customizer ===
-Contributors: mrahmadawais, WPTie, freemius
+Contributors: mrahmadawais, maedahbatool, WPTie, freemius
 Donate link: https://AhmadAwais.com/contact/
 Tags: cf7, cf7 customizer, form customizer, contact form 7 customizer, contact form 7, contact form themes 7, cf7 skin, cf7 theme, form css, cf7 style, cf7 template, contact form templates
 Requires at least: 4.0.0
-Tested up to: 4.7.3
+Tested up to: 5.0.0
 Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -55,11 +55,11 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 == Changelog ==
 
-💯 Reading this change log is fun. 
+💯 Reading this change log is fun.
 
 = Version 1.1.0 =
 
-🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible. 
+🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible.
 
 * ✔️ UPDATE: Form styler is WordPress 4.7 compatible. Test pass!
 * ✔️ UPDATE: Form styler is WordPress 4.7.1 compatible. Test pass!
@@ -78,7 +78,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 = Version 1.0.4 =
 
-🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
+🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility.
 
 * ✔️ UPDATE: WordPress form customizer is now WordPress 4.5 compatible.
 * ✔️ UPDATE: TitanFramework is embedded as per the new rules of WP.org repo plugins.
@@ -87,7 +87,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 = Version 1.0.3 =
 
-🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
+🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility.
 
 * ✔️ UPDATE: Contact Form Customizer is now WordPress 4.5 compatible.
 
@@ -97,7 +97,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 = Version 1.0.2 =
 
-🎯 TL;DR Minor bug fixes. 
+🎯 TL;DR Minor bug fixes.
 
 * ✔️ UPDATE: Better Form Customizer WordPress 4.4 compatible.
 
@@ -107,7 +107,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 = Version 1.0.1 =
 
-🎯 TL;DR WP 4.4 compatible with dependency updates. 
+🎯 TL;DR WP 4.4 compatible with dependency updates.
 
 * ✔️ UPDATE: Form Customizer is not WordPress 4.4 compatible.
 * ✔️ UPDATE: Titan Framework update.

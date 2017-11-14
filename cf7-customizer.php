@@ -3,7 +3,7 @@
  * Plugin Name: CF7 Customizer
  * Plugin URI: http://WPTie.com/
  * Description: Customize Contact Form 7 forms with live theme customizer. After installing this plugin, go to Contact > <a href="/wp-admin/admin.php?page=cfc_welcome_page">CF7 Customizer Settings</a>!
- * Author: mrahmadawais, WPTie
+ * Author: mrahmadawais, maedahbatool, WPTie
  * Author URI: http://WPTie.com/
  * Version: 1.1.0
  * License: GPL v2+
