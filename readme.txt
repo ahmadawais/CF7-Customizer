@@ -57,6 +57,12 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 💯 Reading this change log is fun.
 
+= Version 1.1.1 =
+
+🎯 TL;DR WordPress Form Customizer is now WordPress 4.9 compatible.
+
+* 🐞 FIX: Color Picker in Titan Framework to 2.1.3 as of WP 4.9.
+
 = Version 1.1.0 =
 
 🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible.

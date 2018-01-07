@@ -31,11 +31,17 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 ### Changelog
 
-💯 Reading this change log is fun. 
+💯 Reading this change log is fun.
+
+### Version 1.1.1
+
+🎯 TL;DR WordPress Form Customizer is now WordPress 4.9 compatible.
+
+- 🐞 FIX: Color Picker in Titan Framework to 2.1.3 as of WP 4.9.
 
 ### Version 1.1.0
 
-🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible. 
+🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible.
 
 - ✔️ UPDATE: Form styler is WordPress 4.7 compatible. Test pass!
 - ✔️ UPDATE: Form styler is WordPress 4.7.1 compatible. Test pass!
@@ -54,7 +60,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 ### Version 1.0.4
 
-🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
+🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility.
 
 - ✔️ UPDATE: WordPress form customizer is now WordPress 4.5 compatible.
 - ✔️ UPDATE: TitanFramework is embedded as per the new rules of WP.org repo plugins.
@@ -63,7 +69,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 ### Version 1.0.3
 
-🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility. 
+🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility.
 
 - ✔️ UPDATE: Contact Form Customizer is now WordPress 4.5 compatible.
 
@@ -73,7 +79,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 ### Version 1.0.2
 
-🎯 TL;DR Minor bug fixes. 
+🎯 TL;DR Minor bug fixes.
 
 - ✔️ UPDATE: Better Form Customizer WordPress 4.4 compatible.
 
@@ -83,7 +89,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 ### Version 1.0.1
 
-🎯 TL;DR WP 4.4 compatible with dependency updates. 
+🎯 TL;DR WP 4.4 compatible with dependency updates.
 
 - ✔️ UPDATE: Form Customizer is not WordPress 4.4 compatible.
 - ✔️ UPDATE: Titan Framework update.

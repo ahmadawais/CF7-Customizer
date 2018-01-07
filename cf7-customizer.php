@@ -5,7 +5,7 @@
  * Description: Customize Contact Form 7 forms with live theme customizer. After installing this plugin, go to Contact > <a href="/wp-admin/admin.php?page=cfc_welcome_page">CF7 Customizer Settings</a>!
  * Author: WPCouple(Ahmad Awais & Maedah Batool)
  * Author URI: https://AhmadAwais.com/
- * Version: 1.1.0
+ * Version: 1.1.1
  * License: GPL v2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
