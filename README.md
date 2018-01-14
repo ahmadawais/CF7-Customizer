@@ -1,5 +1,7 @@
 # WordPress Form Customizer | CF7 Customizer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ahmadawais/CF7-Customizer.svg)](https://greenkeeper.io/)
+
 [![WP](https://img.shields.io/badge/WordPress-%E2%86%92-lightgrey.svg?style=flat-square)](https://wordpress.org/plugins/cf7-customizer/)
 [![WP Plugin Version](https://img.shields.io/wordpress/plugin/v/cf7-customizer.svg?style=flat-square&label=version)](https://wordpress.org/plugins/cf7-customizer/)
 [![WP Downloads](https://img.shields.io/wordpress/plugin/dt/cf7-customizer.svg?style=flat-square)](https://wordpress.org/plugins/cf7-customizer/)
