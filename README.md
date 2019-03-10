@@ -39,6 +39,8 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 - 📦 NEW: Freemius SDK updated to v2.2.4
 - 📦 NEW: VSCode dictionary definitions
+- 👌 IMPROVE: VSCode.pro Links
+- 🐛 FIX: Formatting with WordPress Coding Standards
 
 ### Version 1.1.1
 

@@ -63,6 +63,8 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 * 📦 NEW: Freemius SDK updated to v2.2.4
 * 📦 NEW: VSCode dictionary definitions
+* 👌 IMPROVE: VSCode.pro Links
+* 🐛 FIX: Formatting with WordPress Coding Standards
 
 = Version 1.1.1 =
 
