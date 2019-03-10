@@ -11,17 +11,19 @@
 
 ![CF7 Customizer](https://i.imgur.com/qLPelOl.png)
 
-## Watch the video?
+## Watch the Video
+
 Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the video or sign up for pre-release beta testers list.
 
 **Pst. I am going to launch something interesting for this plugin** [Signup to get notified!](http://eepurl.com/bzVeyX)
 
 ### Download
+
 - Download from [WordPress.org](https://wordpress.org/plugins/cf7-customizer/)
 - Landing Page for [CF7 Customizer](http://cf7customizer.wptie.com/)
 - Blog Post about  [CF7 Customizer](https://ahmadawais.com/cf7-customizer-form-styling-via-wp-live-customizer/)
 
-### Getting Started?
+### Getting Started
 
 - Step #0: → Install/Activate Contact Form 7 & Titan Framework.
 - Step #1: → Add New Form and SAVE it.
@@ -33,7 +35,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 💯 Reading this change log is fun.
 
-### Version 1.2.0
+### Version 1.2.0/1
 
 🎯 TL;DR Major security update due to Freemius. (MUST UPDATE to v1.2.0 right now)
 
@@ -41,6 +43,7 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 - 📦 NEW: VSCode dictionary definitions
 - 👌 IMPROVE: VSCode.pro Links
 - 🐛 FIX: Formatting with WordPress Coding Standards
+- 🐛 FIX: Tested up to and required tags
 
 ### Version 1.1.1
 
