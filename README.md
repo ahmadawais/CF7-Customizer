@@ -10,7 +10,6 @@
 
 ![CF7 Customizer](https://i.imgur.com/qLPelOl.png)
 
-
 ## Watch the video?
 Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the video or sign up for pre-release beta testers list.
 
@@ -32,6 +31,13 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 ### Changelog
 
 💯 Reading this change log is fun.
+
+### Version 1.2.0
+
+🎯 TL;DR Major security update due to Freemius. (MUST UPDATE to v1.2.0 right now)
+
+- 📦 NEW: Freemius SDK updated to v2.2.4
+- 📦 NEW: VSCode dictionary definitions
 
 ### Version 1.1.1
 
@@ -113,4 +119,8 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 - ⚡️️ NEW: Add Contact form Margin.
 
 ## License
+
 GNU GPL v2.0. ⓒ [Ahmad Awais](https://AhmadAwais.com/)
+
+- Say 👋 (and follow) to [@MrAhmadAwais on Twitter →](https://twitter.com/MrAhmadAwais/)
+- Become a [VSCode Power User →](https://VSCode.pro)

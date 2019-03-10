@@ -3,8 +3,8 @@ Contributors: mrahmadawais, maedahbatool, WPTie, freemius
 Donate link: https://AhmadAwais.com/contact/
 Tags: cf7, cf7 customizer, form customizer, contact form 7 customizer, contact form 7, contact form themes 7, cf7 skin, cf7 theme, form css, cf7 style, cf7 template, contact form templates
 Requires at least: 4.0.0
-Tested up to: 5.0.0
-Stable tag: 1.1.1
+Tested up to: 5.9.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,13 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 == Changelog ==
 
 💯 Reading this change log is fun.
+
+= Version 1.2.0 =
+
+🎯 TL;DR Major security update due to Freemius. (MUST UPDATE to v1.2.0 right now)
+
+* 📦 NEW: Freemius SDK updated to v2.2.4
+* 📦 NEW: VSCode dictionary definitions
 
 = Version 1.1.1 =
 
@@ -137,7 +144,12 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 * ⚡️️ NEW: Add Contact form Margin.
 
 == License ==
+
 GNU GPL v2.0. ⓒ [Ahmad Awais](https://AhmadAwais.com/)
+
+* Say 👋 (and follow) to [@MrAhmadAwais on Twitter →](https://twitter.com/MrAhmadAwais/)
+* Become a [VSCode Power User →](https://VSCode.pro)
+
 
 
 == Frequently Asked Questions ==
