@@ -1,3 +1,3 @@
 # Changelog
 
-From now on, changelog is being maintained at the end of ReadMe.md file. Thanks!
+From now on, changelog is being maintained at the end of [README.md](/README.md) file. Thanks!
