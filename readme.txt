@@ -59,7 +59,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 = Version 1.2.0/1 =
 
-🎯 TL;DR Major security update due to Freemius. (MUST UPDATE to v1.2.0 right now)
+🎯 TL;DR Major security update due to Freemius. (MUST UPDATE right now)
 
 * 📦 NEW: Freemius SDK updated to v2.2.4
 * 📦 NEW: VSCode dictionary definitions
@@ -153,8 +153,6 @@ GNU GPL v2.0. ⓒ [Ahmad Awais](https://AhmadAwais.com/)
 * Say 👋 (and follow) to [@MrAhmadAwais on Twitter →](https://twitter.com/MrAhmadAwais/)
 * Become a [VSCode Power User →](https://VSCode.pro?utm_source=WPCFC)
 
-
-
 == Frequently Asked Questions ==
 
 **Q1: Contact Form Styles didn't show up after I saved and press 'x' in the Customizer?**
@@ -175,3 +173,8 @@ Step #3: Go to your contact page(front-end) and open CUSTOMIZER from the admin b
 Step #4: Find and open CF7 Customizer panel and customize your contact forms. Voila!
 
 Here, I created a screencast for you to understand these two steps [Watch it!](http://jmp.sh/bwkBqCM)
+
+
+== Upgrade Notice ==
+
+Major security bug fix update due to Freemius. MUST UPDATE the plugin right now.
