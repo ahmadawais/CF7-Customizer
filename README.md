@@ -35,9 +35,9 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 
 💯 Reading this change log is fun.
 
-### Version 1.2.0/1
+### Version 1.2.x
 
-🎯 TL;DR Major security update due to Freemius. (MUST UPDATE to v1.2.0 right now)
+🎯 TL;DR Major security update due to Freemius. (MUST UPDATE right now)
 
 - 📦 NEW: Freemius SDK updated to v2.2.4
 - 📦 NEW: VSCode dictionary definitions

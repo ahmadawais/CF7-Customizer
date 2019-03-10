@@ -57,7 +57,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 💯 Reading this change log is fun.
 
-= Version 1.2.0/1 =
+= Version 1.2.x =
 
 🎯 TL;DR Major security update due to Freemius. (MUST UPDATE right now)
 
