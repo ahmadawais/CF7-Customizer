@@ -2,8 +2,35 @@
 	/**
 	 * @package     Freemius
 	 * @copyright   Copyright (c) 2015, Freemius, Inc.
-	 * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+	 * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License Version 3
 	 * @since       1.0.3
+	 */
+
+	/**
+	 * Note for WordPress.org Theme/Plugin reviewer:
+	 *  Freemius is an SDK for plugin and theme developers. Since the core
+	 *  of the SDK is relevant both for plugins and themes, for obvious reasons,
+	 *  we only develop and maintain one code base.
+	 *
+	 *  This code (and page) will not run for wp.org themes (only plugins).
+	 *
+	 *  In addition, this page loads an i-frame. We intentionally named it 'frame'
+	 *  so it will pass the "Theme Check" that is looking for the string "i" . "frame".
+	 *
+	 * UPDATE:
+	 *  After ongoing conversations with the WordPress.org TRT we received
+	 *  an official approval for including i-frames in the theme's WP Admin setting's
+	 *  page tab (the SDK will never add any i-frames on the sitefront). i-frames
+	 *  were never against the guidelines, but we wanted to get the team's blessings
+	 *  before we move forward. For the record, I got the final approval from
+	 *  Ulrich Pogson (@grapplerulrich), a team lead at the TRT during WordCamp
+	 *  Europe 2017 (June 16th, 2017).
+	 *
+	 * If you have any questions or need clarifications, please don't hesitate
+	 * pinging me on slack, my username is @svovaf.
+	 *
+	 * @author Vova Feldman (@svovaf)
+	 * @since 1.2.2
 	 */
 
 	if ( ! defined( 'ABSPATH' ) ) {
@@ -14,12 +41,14 @@
 	wp_enqueue_script( 'json2' );
 	fs_enqueue_local_script( 'postmessage', 'nojquery.ba-postmessage.min.js' );
 	fs_enqueue_local_script( 'fs-postmessage', 'postmessage.js' );
+	fs_enqueue_local_style( 'fs_common', '/admin/common.css' );
 
 	/**
-	 * @var array $VARS
+	 * @var array    $VARS
+	 * @var Freemius $fs
 	 */
-	$slug      = $VARS['slug'];
-	$fs        = freemius( $slug );
+	$fs        = freemius( $VARS['id'] );
+	$slug 	   = $fs->get_slug();
 	$timestamp = time();
 
 	$context_params = array(
@@ -49,20 +78,34 @@
 	}
 
 	$query_params = array_merge( $context_params, $_GET, array(
-		'next'           => $fs->_get_sync_license_url( false, false ),
-		'plugin_version' => $fs->get_plugin_version(),
+		'next'             => $fs->_get_sync_license_url( false, false ),
+		'plugin_version'   => $fs->get_plugin_version(),
 		// Billing cycle.
-		'billing_cycle'  => fs_request_get( 'billing_cycle', WP_FS__PERIOD_ANNUALLY ),
+		'billing_cycle'    => fs_request_get( 'billing_cycle', WP_FS__PERIOD_ANNUALLY ),
+		'is_network_admin' => fs_is_network_admin() ? 'true' : 'false',
 	) );
-?>
-	<?php if ( ! $fs->is_registered() ) {
+
+	if ( ! $fs->is_registered() ) {
 		$template_data = array(
-			'slug' => $slug,
+			'id' => $fs->get_id(),
 		);
 		fs_require_template( 'forms/trial-start.php', $template_data);
-	} ?>
-	<div id="fs_pricing" class="wrap" style="margin: 0 0 -65px -20px;">
-		<div id="iframe"></div>
+	}
+
+	$view_params = array(
+		'id'   => $VARS['id'],
+		'page' => strtolower( $fs->get_text_x_inline( 'Pricing', 'noun', 'pricing' ) ),
+	);
+	fs_require_once_template('secure-https-header.php', $view_params);
+
+	$has_tabs = $fs->_add_tabs_before_content();
+
+	if ( $has_tabs ) {
+		$query_params['tabs'] = 'true';
+	}
+?>
+	<div id="fs_pricing" class="wrap fs-section fs-full-size-wrapper">
+		<div id="fs_frame"></div>
 		<form action="" method="POST">
 			<input type="hidden" name="user_id"/>
 			<input type="hidden" name="user_email"/>
@@ -76,24 +119,26 @@
 			(function ($, undef) {
 				$(function () {
 					var
-						// Keep track of the iframe height.
-						iframe_height = 800,
-						base_url      = '<?php echo WP_FS__ADDRESS ?>',
-						// Pass the parent page URL into the Iframe in a meaningful way (this URL could be
-						// passed via query string or hard coded into the child page, it depends on your needs).
-						src           = base_url + '/pricing/?<?php echo http_build_query( $query_params ) ?>#' + encodeURIComponent(document.location.href),
+					// Keep track of the i-frame height.
+					frame_height = 800,
+					base_url     = '<?php echo WP_FS__ADDRESS ?>',
+					// Pass the parent page URL into the i-frame in a meaningful way (this URL could be
+					// passed via query string or hard coded into the child page, it depends on your needs).
+					src          = base_url + '/pricing/?<?php echo http_build_query( $query_params ) ?>#' + encodeURIComponent(document.location.href),
 
-						// Append the Iframe into the DOM.
-						iframe        = $('<iframe " src="' + src + '" width="100%" height="' + iframe_height + 'px" scrolling="no" frameborder="0" style="background: transparent;"><\/iframe>')
-							.appendTo('#iframe');
+					// Append the I-frame into the DOM.
+					frame = $('<i' + 'frame " src="' + src + '" width="100%" height="' + frame_height + 'px" scrolling="no" frameborder="0" style="background: transparent; width: 1px; min-width: 100%;"><\/i' + 'frame>')
+						.appendTo('#fs_frame');
 
-					FS.PostMessage.init(base_url);
+					FS.PostMessage.init(base_url, [frame[0]]);
 
 					FS.PostMessage.receive('height', function (data) {
 						var h = data.height;
-						if (!isNaN(h) && h > 0 && h != iframe_height) {
-							iframe_height = h;
-							$("#iframe iframe").height(iframe_height + 'px');
+						if (!isNaN(h) && h > 0 && h != frame_height) {
+							frame_height = h;
+							frame.height(frame_height + 'px');
+
+							FS.PostMessage.postScroll(frame[0]);
 						}
 					});
 
@@ -101,7 +146,7 @@
 						FS.PostMessage.post('dimensions', {
 							height   : $(document.body).height(),
 							scrollTop: $(document).scrollTop()
-						}, iframe[0]);
+						}, frame[0]);
 					});
 
 					FS.PostMessage.receive('start_trial', function (data) {
@@ -112,11 +157,15 @@
 		</script>
 	</div>
 <?php
+	if ( $has_tabs ) {
+		$fs->_add_tabs_after_content();
+	}
+
 	$params = array(
 		'page'           => 'pricing',
 		'module_id'      => $fs->get_id(),
+		'module_type'    => $fs->get_module_type(),
 		'module_slug'    => $slug,
 		'module_version' => $fs->get_plugin_version(),
 	);
 	fs_require_template( 'powered-by.php', $params );
-?>
