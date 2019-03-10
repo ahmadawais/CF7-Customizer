@@ -4,7 +4,7 @@ Donate link: https://AhmadAwais.com/contact/
 Tags: cf7, cf7 customizer, form customizer, contact form 7 customizer, contact form 7, contact form themes 7, cf7 skin, cf7 theme, form css, cf7 style, cf7 template, contact form templates
 Requires at least: 4.0
 Tested up to: 5.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,7 +57,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 💯 Reading this change log is fun.
 
-= Version 1.2.x =
+= Version 1.2.0/1/2 =
 
 🎯 TL;DR Major security update due to Freemius. (MUST UPDATE right now)
 
