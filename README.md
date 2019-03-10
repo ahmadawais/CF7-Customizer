@@ -5,6 +5,7 @@
 [![WP Downloads](https://img.shields.io/wordpress/plugin/dt/cf7-customizer.svg?style=flat-square)](https://wordpress.org/plugins/cf7-customizer/)
 [![WP Rating](https://img.shields.io/wordpress/plugin/r/cf7-customizer.svg?style=flat-square)](https://wordpress.org/support/view/plugin-reviews/cf7-customizer?filter=5)
 [![License](https://img.shields.io/badge/license-GPL%20v2.0-lightgrey.svg?style=flat-square)](https://github.com/ahmadawais/CF7-Customizer/blob/master/license.txt)
+[![VSCode.pro course](https://img.shields.io/badge/Supported%20by-VSCode%20Power%20User%20Course%20%E2%86%92-gray.svg?colorA=444444&colorB=4F44D6)](https://VSCode.pro?utm_source=WPCFC)
 
 👌 Customize, style and theme your WordPress Contact Forms. An intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
 
@@ -123,4 +124,4 @@ Head over to [CF7 Customizer](http://cf7customizer.wptie.com/) and watch the vid
 GNU GPL v2.0. ⓒ [Ahmad Awais](https://AhmadAwais.com/)
 
 - Say 👋 (and follow) to [@MrAhmadAwais on Twitter →](https://twitter.com/MrAhmadAwais/)
-- Become a [VSCode Power User →](https://VSCode.pro)
+- Become a [VSCode Power User →](https://VSCode.pro?utm_source=WPCFC)

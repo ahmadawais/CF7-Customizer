@@ -148,7 +148,7 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 GNU GPL v2.0. ⓒ [Ahmad Awais](https://AhmadAwais.com/)
 
 * Say 👋 (and follow) to [@MrAhmadAwais on Twitter →](https://twitter.com/MrAhmadAwais/)
-* Become a [VSCode Power User →](https://VSCode.pro)
+* Become a [VSCode Power User →](https://VSCode.pro?utm_source=WPCFC)
 
 
 
