@@ -54,97 +54,21 @@ If you have any questions post in the WordPress.org forums or reach out to me at
 
 
 == Changelog ==
+== Changelog ==
 
-💯 Reading this change log is fun.
+[![📝](https://raw.githubusercontent.com/ahmadawais/stuff/master/images/git/log.png)](changelog.md)
 
-= Version 1.2.0/1/2 =
+## Changelog
 
-🎯 TL;DR Major security update due to Freemius. (MUST UPDATE right now)
+[❯ Read the changelog here →](https://github.com/ahmadawais/cf7-customizer/blob/master/changelog.md)
 
-* 📦 NEW: Freemius SDK updated to v2.2.4
-* 📦 NEW: VSCode dictionary definitions
-* 👌 IMPROVE: VSCode.pro Links
-* 🐛 FIX: Formatting with WordPress Coding Standards
-* 🐛 FIX: Tested up to and required tags
+<br>
 
-= Version 1.1.1 =
+<small>**KEY**: `📦 NEW`, `👌 IMPROVE`, `🐛 FIX`, `📖 DOC`, `🚀 RELEASE`, and `✅ TEST`
 
-🎯 TL;DR WordPress Form Customizer is now WordPress 4.9 compatible.
+> _I use [Emoji-log](https://github.com/ahmadawais/Emoji-Log), you should try it and simplify your git commits._
 
-* 🐞 FIX: Color Picker in Titan Framework to 2.1.3 as of WP 4.9.
-
-= Version 1.1.0 =
-
-🎯 TL;DR WordPress Form Customizer is now WordPress 4.7 compatible.
-
-* ✔️ UPDATE: Form styler is WordPress 4.7 compatible. Test pass!
-* ✔️ UPDATE: Form styler is WordPress 4.7.1 compatible. Test pass!
-* ✔️ UPDATE: Form styler is WordPress 4.7.2 compatible. Test pass!
-* ✔️ UPDATE: Form styler is WordPress 4.7.3 compatible. Test pass!
-* ✔️ UPDATE: TitanFramework for Customizer options.
-* ✔️ UPDATE: TGMPA for Contact Form 7 plugin.
-* ✔️ UPDATE: Freemius SDK for Plugin Form Insights.
-* ✔️ UPDATE: Git Repo URL update.
-* ✔️ UPDATE: Readme update.
-
-* ⚡️️ NEW: Change Text color for Contact Form 7 Labels. [GIF](https://i.imgur.com/yy8224s.gif).
-* ⚡️️ NEW: Better Plugin Workflow with a notice to Get Started.
-
-* 🐞 FIX: Welcome page sub input field.
-
-= Version 1.0.4 =
-
-🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility.
-
-* ✔️ UPDATE: WordPress form customizer is now WordPress 4.5 compatible.
-* ✔️ UPDATE: TitanFramework is embedded as per the new rules of WP.org repo plugins.
-
-* 🐞 FIX: Freemius SDK update address minor bugs.
-
-= Version 1.0.3 =
-
-🎯 TL;DR Minor bug fixes with WordPress 4.5 compatibility.
-
-* ✔️ UPDATE: Contact Form Customizer is now WordPress 4.5 compatible.
-
-* 🐞 FIX: Remove Form Subscription insights via Freemius bug.
-
-* ⚡️️ NEW: Update Freemius API for Customizer Plugin.
-
-= Version 1.0.2 =
-
-🎯 TL;DR Minor bug fixes.
-
-* ✔️ UPDATE: Better Form Customizer WordPress 4.4 compatible.
-
-* 🐞 FIX: Contact Form 7 Customizer plugin minor Freemius bugs removed.
-
-* ⚡️️ NEW: Form Styles & Themes are added via embedded TitanFramework.
-
-= Version 1.0.1 =
-
-🎯 TL;DR WP 4.4 compatible with dependency updates.
-
-* ✔️ UPDATE: Form Customizer is not WordPress 4.4 compatible.
-* ✔️ UPDATE: Titan Framework update.
-* ✔️ UPDATE: TGMPA plugin update.
-
-* ⚡️️ NEW: Add Custom CSS to WordPress Forms.
-* ⚡️️ NEW: Add Border-radius to contact forms .
-* ⚡️️ NEW: Create Border-radius for inputs.
-* ⚡️️ NEW: Customize Border-radius for buttons.
-* ⚡️️ NEW: Freemius Support added to form customizer.
-
-= Version Version 1.0.0 =
-
-🎯 TL;DR First completed version of WordPress Forms Themes Customizer | CF7 Customizer.
-
-* ⚡️️ NEW: Customize Contact form Colors.
-* ⚡️️ NEW: Theme Contact form Background Images.
-* ⚡️️ NEW: Customize Contact form Font Sizes.
-* ⚡️️ NEW: Add Contact form Borders.
-* ⚡️️ NEW: Add Contact form Padding.
-* ⚡️️ NEW: Add Contact form Margin.
+</small>
 
 == License ==
 
