@@ -8,7 +8,7 @@ Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-CF7 Customizer is an intuitive plugin to design your contact forms via WordPress live customizer, right at the front-end.
+CF7 Customizer is an intuitive plugin to help you design site contact forms via WordPress live customizer, right at the front-end.
 
 == Description ==
 
