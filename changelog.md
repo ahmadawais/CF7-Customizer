@@ -29,7 +29,7 @@ I have released a video course to help you become a better developer — <a href
 
 <br>
 
-### RELEASE: [v1.2.2](https://github.com/ahmadawais/cf7-customizer/compare/1.2.2...v1.2.2)
+### RELEASE: [1.2.3](https://github.com/ahmadawais/cf7-customizer/compare/1.2.2...1.2.3)
 
 ![👌 IMPROVE:](https://img.shields.io/badge/-IMPROVEMENT-gray.svg?colorB=39AA54)
 
@@ -42,7 +42,13 @@ I have released a video course to help you become a better developer — <a href
 
 ![📖 DOC:](https://img.shields.io/badge/-DOCS-gray.svg?colorB=978CD4)
 
+>  📖 Changelog [`c94072b`](https://github.com/ahmadawais/cf7-customizer/commit/c94072baa8d8cbab0956e90dbdee33d5f003aafc) <br>
 > 📖 Changelog & Links update [`45d30fb`](https://github.com/ahmadawais/cf7-customizer/commit/45d30fb922a137838390410e8fd1380ac59a9d4d) <br>
+> 📖 Lingo [`038f2c2`](https://github.com/ahmadawais/cf7-customizer/commit/038f2c226cde6cde90320dff42c22f5a24f20e31) <br>
+
+![🚀 RELEASE:](https://img.shields.io/badge/-RELEASE-gray.svg?colorB=E5A301)
+
+> 🚀 1.2.3 [`47dc7a3`](https://github.com/ahmadawais/cf7-customizer/commit/47dc7a35b641f576c6843a393a6358f7a3629c43) <br>
 
 <br>
 
